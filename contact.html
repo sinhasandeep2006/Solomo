@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact & Grievances — SOLOMO ESSENTIALS</title>
+<link href="assets/img/favicon.png" rel="icon" type="image/png"/>
+<link href="assets/img/favicon.png" rel="apple-touch-icon"/>
+<meta name="description" content="Customer care contacts and the grievance officer for SOLOMO ESSENTIALS."/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "cream-bg": "#FFFDF7", "cream-surface": "#F7F3E8", "cream-card": "#FFFFFF",
+            "navy-brand": "#111A78", "navy-muted": "#2F3875",
+            "orange-brand": "#FF5A0A", "orange-light": "#FFF0EB",
+            "blue-brand": "#087FE5", "blue-light": "#EBF5FF",
+            "slate-body": "#4E5365", "sand-border": "#EBE5D8"
+          },
+          fontFamily: {
+            sans: ["Nunito", "ui-sans-serif", "system-ui", "sans-serif"],
+            serif: ["Fredoka", "Nunito", "sans-serif"]
+          },
+          borderRadius: { "2xl": "1.25rem", "3xl": "1.75rem", "4xl": "2.25rem" },
+          scale: { "102": "1.02" },
+          boxShadow: { "xs": "0 1px 2px 0 rgb(17 26 120 / 0.06)" },
+          backdropBlur: { "xs": "2px" }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; background-color: #FFFDF7; color: #111A78; }
+      body { overscroll-behavior: none; }
+      body.drawer-open { overflow: hidden; }
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #F7F3E8; }
+    ::-webkit-scrollbar-thumb { background: #D8D0BE; border-radius: 9999px; }
+    :focus-visible { outline: 2px solid #FF5A0A; outline-offset: 2px; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important; animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important; scroll-behavior: auto !important;
+      }
+      .group:hover img { transform: none !important; }
+    }
+  </style>
+
+<script>window.SOLOMO_BASE = '';</script>
+<script defer src="assets/js/solomo.js"></script>
+</head>
+<body class="bg-cream-bg font-sans text-navy-brand antialiased selection:bg-orange-light selection:text-orange-brand"><!-- SPLASH: brand loading animation, once per browser session. -->
+<div aria-label="Loading SOLOMO ESSENTIALS" class="fixed inset-0 z-[100] bg-white flex items-center justify-center transition-opacity duration-500" id="splash" role="status">
+<div class="w-full max-w-3xl px-4 flex flex-col items-center">
+<!-- The source video's frame ends mid-"ESSENTIALS", so crop just below "SOLOMO"
+     (lowest point 90.4% of frame height, measured across all frames), fade the
+     edge, and set the word as real text. -->
+<div aria-hidden="true" class="relative w-full overflow-hidden" style="aspect-ratio: 1920 / 977">
+<video autoplay class="absolute top-0 left-0 w-full h-auto" muted playsinline preload="auto" src="assets/video/loader.mp4"></video>
+<div class="absolute inset-x-0 bottom-0 h-[3%] bg-gradient-to-t from-white to-transparent"></div>
+</div>
+<p class="font-serif font-bold text-orange-brand text-2xl sm:text-4xl md:text-5xl tracking-[0.4em] pl-[0.4em] -mt-1 sm:-mt-2">ESSENTIALS</p>
+</div>
+<button class="absolute bottom-8 right-6 px-5 py-2.5 rounded-full bg-navy-brand/90 hover:bg-navy-brand text-white text-xs font-bold tracking-wide transition-colors" id="splash-skip" type="button">Skip</button>
+</div>
+<script>
+(function () {
+  var s = document.getElementById('splash'), seen = false;
+  try { seen = sessionStorage.getItem('solomo.splash') === '1'; sessionStorage.setItem('solomo.splash', '1'); } catch (e) {}
+  if (seen || matchMedia('(prefers-reduced-motion: reduce)').matches) { s.remove(); return; }
+  var root = document.documentElement, v = s.querySelector('video'), done = false;
+  root.style.overflow = 'hidden';
+  function hide() {
+    if (done) return; done = true;
+    root.style.overflow = '';
+    s.style.opacity = '0';
+    setTimeout(function () { s.remove(); }, 500);
+  }
+  v.addEventListener('ended', hide);
+  v.addEventListener('error', hide);
+  document.getElementById('splash-skip').addEventListener('click', hide);
+  // ponytail: if autoplay is blocked or the file is slow, don't trap the shopper.
+  setTimeout(function () { if (v.paused || v.readyState < 2) hide(); }, 3000);
+  setTimeout(hide, 12000);
+})();
+</script>
+<!-- Announcement bar -->
+<div class="bg-navy-brand text-[#F5F2E9] text-xs font-semibold py-2.5 px-4 tracking-wide text-center flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+<!-- CLAIM(asci): needs a displayed certificate number or softer wording. -->
+<span class="hidden sm:inline">✦ Certified 100% Bamboo Pulp</span>
+<span class="opacity-40 hidden sm:inline">|</span>
+<span>Free <span class="hidden sm:inline">Express </span>Shipping <span class="hidden sm:inline">across India on orders </span>over ₹499</span>
+<span class="opacity-40">|</span>
+<span class="text-orange-brand font-bold"><span class="hidden sm:inline">Use code </span>COZY10<span class="hidden sm:inline"> for</span><span class="sm:hidden"> ·</span> 10% off</span>
+</div>
+<header class="sticky top-0 z-40 bg-[#FFFDF7]/90 backdrop-blur-md border-b border-sand-border transition-all">
+<div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center gap-6">
+<a aria-label="SOLOMO ESSENTIALS home" class="shrink-0" href="index.html">
+<img alt="SOLOMO ESSENTIALS" class="h-16 w-auto mix-blend-multiply" height="64" src="assets/img/logo.png" width="89"/>
+</a>
+<nav aria-label="Main" class="hidden lg:flex items-center gap-5 flex-1 min-w-0">
+<div class="flex items-center gap-5">
+<a class="text-[13.5px] font-extrabold text-navy-brand whitespace-nowrap py-2 border-b-2 border-transparent hover:border-orange-brand transition-colors" href="index.html">Home</a>
+<a class="text-[13.5px] font-extrabold text-navy-brand whitespace-nowrap py-2 border-b-2 border-transparent hover:border-orange-brand transition-colors" href="about.html">About</a>
+<a class="text-[13.5px] font-extrabold text-navy-brand whitespace-nowrap py-2 border-b-2 border-transparent hover:border-orange-brand transition-colors" href="shop.html">Shop All</a>
+<a class="text-[13.5px] font-extrabold text-navy-brand whitespace-nowrap py-2 border-b-2 border-transparent hover:border-orange-brand transition-colors" href="contact.html">Contact</a>
+</div>
+<span aria-hidden="true" class="w-px h-4 bg-sand-border shrink-0"></span>
+<div class="flex items-center gap-4">
+<a class="text-xs font-semibold text-slate-body hover:text-navy-brand whitespace-nowrap py-2 transition-colors" href="index.html#story">Our Story</a>
+<a class="text-xs font-semibold text-slate-body hover:text-navy-brand whitespace-nowrap py-2 transition-colors" href="index.html#benefits">Why Unbleached</a>
+</div>
+</nav>
+<div class="flex items-center gap-3 sm:gap-4 ml-auto shrink-0">
+<form action="search.html" data-search class="hidden sm:flex items-center bg-white border-2 border-sand-border rounded-full px-3.5 py-1.5 text-xs text-slate-body gap-2 focus-within:border-navy-brand transition-colors" method="get" role="search">
+<span aria-hidden="true" class="material-symbols-outlined text-sm text-navy-muted">search</span>
+<label class="sr-only" for="site-search">Search products</label>
+<input autocomplete="off" class="bg-transparent border-none outline-none text-navy-brand placeholder:text-slate-body text-xs font-semibold w-28 lg:w-36" id="site-search" name="q" placeholder="Search products" type="search"/>
+</form>
+<a aria-label="Your wishlist" class="relative w-10 h-10 rounded-full bg-white border-2 border-sand-border hover:border-orange-brand flex items-center justify-center text-navy-brand hover:text-orange-brand transition-colors shrink-0" href="wishlist.html">
+<span aria-hidden="true" class="material-symbols-outlined text-xl">favorite</span>
+<span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-orange-brand text-white text-[11px] flex items-center justify-center font-extrabold" hidden id="nav-wish-count">0</span>
+</a>
+<button aria-controls="cart-drawer" aria-label="Open your basket" class="relative flex items-center gap-2 bg-navy-brand hover:bg-navy-muted text-white text-xs font-extrabold px-4 py-2.5 rounded-full shadow-sm transition-transform active:scale-95" onclick="openCart()" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-base">shopping_bag</span>
+<span class="hidden sm:inline">Basket</span>
+<span class="w-5 h-5 rounded-full bg-orange-brand text-white text-[11px] flex items-center justify-center font-extrabold" id="nav-cart-count">0</span>
+</button>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open menu" class="lg:hidden w-10 h-10 rounded-full bg-cream-surface border border-sand-border flex items-center justify-center text-navy-brand" id="mobile-nav-toggle" onclick="toggleMobileNav()" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-xl" id="mobile-nav-icon">menu</span>
+</button>
+</div>
+</div>
+<nav aria-label="Mobile" class="lg:hidden border-t border-sand-border bg-cream-bg px-6 py-4" hidden id="mobile-nav">
+<p class="text-[11px] font-extrabold uppercase tracking-widest text-orange-brand mb-2">Shop</p>
+<ul class="flex flex-col gap-0.5 text-sm">
+<li><a class="block py-2 font-extrabold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=table">Table Boxes</a></li>
+<li><a class="block py-2 font-extrabold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=wipes">Pure Wipes</a></li>
+<li><a class="block py-2 font-extrabold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=pocket">Pocket Travel</a></li>
+<li><a class="block py-2 font-extrabold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=bundle">Bundles</a></li>
+<li><a class="block py-2 font-extrabold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html">Shop All</a></li>
+</ul>
+<p class="text-[11px] font-extrabold uppercase tracking-widest text-orange-brand mt-4 mb-2">All products</p>
+<ul class="flex flex-col gap-0.5 text-sm">
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/bedside-comfort-cube.html">Bedside Comfort Cube</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/desk-essentials-flat-box.html">Desk Essentials Flat Box</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/pure-bamboo-water-wipes.html">Pure Bamboo Water Wipes</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/everyday-pocket-packets.html">Everyday Pocket Packets</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/starter-nursery-pack.html">Starter Nursery Pack</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/curated-starter-box.html">Curated Starter Box</a></li>
+</ul>
+<p class="text-[11px] font-extrabold uppercase tracking-widest text-orange-brand mt-4 mb-2">Learn</p>
+<ul class="flex flex-col gap-0.5 text-sm">
+<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="index.html#story">Our Story</a></li>
+<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="index.html#benefits">Why Unbleached</a></li>
+<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="index.html#reviews">Reviews</a></li>
+</ul>
+<p class="text-[11px] font-extrabold uppercase tracking-widest text-orange-brand mt-4 mb-2">Help</p>
+<ul class="flex flex-col gap-0.5 text-sm">
+<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="cart.html">Your Basket</a></li>
+<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="wishlist.html">Your Wishlist</a></li>
+<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="order/track.html">Track Order</a></li>
+<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="faq.html">FAQs</a></li>
+<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="contact.html">Contact &amp; Grievances</a></li>
+</ul>
+<form action="search.html" data-search class="mt-4 pt-3 border-t border-sand-border flex items-center bg-white border-2 border-sand-border rounded-full px-3.5 py-2 gap-2" method="get" role="search">
+<span aria-hidden="true" class="material-symbols-outlined text-sm text-navy-muted">search</span>
+<label class="sr-only" for="site-search-mobile">Search products</label>
+<input autocomplete="off" class="bg-transparent border-none outline-none text-navy-brand placeholder:text-slate-body text-xs font-semibold flex-1" id="site-search-mobile" name="q" placeholder="Search products" type="search"/>
+</form>
+</nav>
+</header><nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-6 lg:px-10 pt-6 flex items-center gap-2 text-xs text-slate-body flex-wrap">
+<a class="hover:text-orange-brand transition-colors" href="index.html">Home</a>
+<span aria-hidden="true" class="text-slate-body/50">/</span>
+<span class="text-navy-brand font-semibold">Contact</span>
+</nav>
+<main class="max-w-3xl mx-auto px-6 py-10 lg:py-14">
+<h1 class="text-2xl sm:text-3xl font-bold text-navy-brand tracking-tight">Contact &amp; Grievances</h1>
+<p class="text-xs text-slate-body mt-2">Last updated 18 September 2026</p>
+<p class="text-sm text-slate-body leading-relaxed mt-5">How to reach us, and how a complaint is handled.</p>
+<div class="mt-5 rounded-xl border-2 border-dashed border-orange-brand/40 bg-orange-light/40 p-4"><p class="text-xs text-navy-brand leading-relaxed"><strong>Draft.</strong> The structure and the mandatory headings are in place. Every <code class="font-mono">TODO</code> below is a fact only you can supply, and this page should be read by someone who knows Indian consumer law before you take a single order.</p></div>
+<h2 class="text-base font-extrabold text-navy-brand mt-8 mb-2">Customer care</h2>
+<p class="text-sm text-slate-body leading-relaxed mb-3">TODO — email address, phone number and the hours they are answered. If WhatsApp is your main channel, put the number here and fix the footer link, which currently points at wa.me with no number.</p>
+<h2 class="text-base font-extrabold text-navy-brand mt-8 mb-2">Order questions</h2>
+<p class="text-sm text-slate-body leading-relaxed mb-3">Have your order number ready — you can find it in your confirmation email, or look the order up on the <a class="underline underline-offset-2 hover:text-orange-brand" href="order/track.html">tracking page</a>.</p>
+<h2 class="text-base font-extrabold text-navy-brand mt-8 mb-2">How a complaint is handled</h2>
+<p class="text-sm text-slate-body leading-relaxed mb-3">Every complaint is acknowledged within 48 hours and resolved within 30 days. If you are not satisfied with the resolution, the grievance officer named below is your next step.</p>
+
+<div class="mt-12 rounded-2xl border-2 border-blue-brand/30 bg-blue-light/40 p-5">
+<h2 class="text-xs font-extrabold uppercase tracking-wider text-blue-brand mb-2">Grievance officer</h2>
+<p class="text-xs text-slate-body leading-relaxed">
+<!-- LEGAL(ecommerce-rules-2020): name, designation, address, email and phone
+     are mandatory, as is a stated response time. -->
+Name: TODO &middot; Designation: TODO<br/>
+Address: TODO — full registered address<br/>
+Email: TODO &middot; Phone: TODO<br/>
+We acknowledge every complaint within 48 hours and resolve it within 30 days.
+</p>
+</div>
+</main>
+<!-- CART DRAWER -->
+<div class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0" id="cart-drawer">
+<div class="absolute inset-0 bg-navy-brand/40 backdrop-blur-xs transition-opacity" onclick="closeCart()"></div>
+<div aria-labelledby="cart-title" aria-modal="true" class="absolute inset-y-0 right-0 max-w-md w-full bg-white shadow-2xl flex flex-col pointer-events-auto transform translate-x-full transition-transform duration-300" id="cart-drawer-panel" role="dialog">
+<div class="p-6 border-b border-sand-border flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="material-symbols-outlined text-navy-brand">shopping_bag</span>
+<h2 class="font-bold text-navy-brand text-base" id="cart-title">Your Everyday Bag</h2>
+<span class="text-xs bg-orange-light text-orange-brand font-bold px-2 py-0.5 rounded-full" id="drawer-pill-count">0 items</span>
+</div>
+<button aria-label="Close your basket" class="w-8 h-8 rounded-full bg-cream-surface flex items-center justify-center text-slate-body hover:text-navy-brand" id="cart-close" onclick="closeCart()" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-4" id="cart-items-container"></div>
+<div class="p-6 border-t border-sand-border bg-cream-surface/40 space-y-3">
+<form autocomplete="off" class="flex items-center gap-2" data-msg="promo-msg" onsubmit="applyPromo(event)">
+<label class="sr-only" for="promo-input">Discount code</label>
+<input class="flex-1 min-w-0 bg-white border border-sand-border rounded-full px-4 py-2 text-xs text-navy-brand placeholder:text-slate-body outline-none focus:border-navy-brand uppercase" id="promo-input" maxlength="20" placeholder="Discount code" type="text"/>
+<button class="px-4 py-2 rounded-full bg-cream-surface hover:bg-sand-border border border-sand-border text-navy-brand text-xs font-bold transition-colors shrink-0" type="submit">Apply</button>
+</form>
+<p aria-live="polite" class="text-[11px] min-h-[1rem]" id="promo-msg"></p>
+<div class="flex items-center justify-between text-xs text-slate-body">
+<span>Subtotal</span><span class="font-bold text-navy-brand tabular-nums" id="drawer-subtotal">₹0</span>
+</div>
+<div class="hidden items-center justify-between text-xs text-emerald-700 font-semibold" id="drawer-discount-row">
+<span id="drawer-discount-label">Discount</span><span class="tabular-nums" id="drawer-discount">−₹0</span>
+</div>
+<div class="flex items-center justify-between text-xs font-semibold">
+<span>Express Delivery</span><span class="tabular-nums" id="drawer-shipping">—</span>
+</div>
+<p class="text-[11px] text-slate-body" id="drawer-shipping-note"></p>
+<div class="flex items-center justify-between text-sm font-extrabold text-navy-brand pt-2 border-t border-sand-border">
+<span>Total</span><span class="tabular-nums" id="drawer-total">₹0</span>
+</div>
+<button class="w-full py-3.5 bg-orange-brand hover:bg-[#E84E00] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold text-sm rounded-full shadow-md shadow-orange-brand/20 transition-all flex items-center justify-center gap-2" id="checkout-btn" onclick="startCheckout()" type="button">
+<span>Proceed to Checkout</span>
+<span aria-hidden="true" class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+<a class="block py-2.5 text-center text-xs font-bold text-navy-brand hover:text-orange-brand underline decoration-orange-brand decoration-2 underline-offset-2 transition-colors" href="cart.html">View full basket</a>
+<p class="text-center text-[11px] text-slate-body">Prices inclusive of all taxes</p>
+</div>
+</div>
+</div>
+<div aria-live="polite" class="fixed bottom-6 right-6 left-6 sm:left-auto bg-[#111A78] text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-28 opacity-0 pointer-events-none transition-all duration-300 z-[60]" id="quick-toast" role="status">
+<div aria-hidden="true" class="w-8 h-8 rounded-full bg-orange-brand flex items-center justify-center text-white text-xs shrink-0">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div>
+<div class="text-xs font-extrabold" id="toast-text">Item added to your basket</div>
+<div class="text-[11px] text-gray-200" id="toast-sub">Free delivery on orders over ₹499.</div>
+</div>
+</div><footer class="bg-[#111A78] text-white pt-14 pb-8 border-t border-[#1a2599]">
+<div class="max-w-7xl mx-auto px-6 lg:px-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-white/10">
+<div class="space-y-3">
+<a aria-label="SOLOMO ESSENTIALS home" class="inline-block bg-white rounded-2xl px-3 py-2" href="index.html">
+<img alt="SOLOMO ESSENTIALS" class="h-16 w-auto" height="64" loading="lazy" src="assets/img/logo.png" width="89"/>
+</a>
+<p class="text-xs text-gray-200 leading-relaxed">Thoughtfully crafted essentials from 100% bamboo pulp. Pure softness, zero chlorine, zero guilt.</p>
+<!-- LEGAL(ecommerce-rules-2020): seller identity and grievance officer are mandatory. -->
+<div class="text-[11px] text-gray-300 leading-relaxed pt-2">
+Sold by: <span class="font-semibold">TODO — registered legal name</span><br/>
+TODO — full registered address<br/>
+GSTIN: TODO<br/>
+<a class="underline decoration-white/30 underline-offset-2 hover:text-white" href="about.html">Full seller details</a>
+</div>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-amber-300 mb-3">Shop Essentials</h3>
+<ul class="space-y-2 text-xs text-gray-200">
+<li><a class="hover:text-white transition-colors" href="products/bedside-comfort-cube.html">Bedside Comfort Cube</a></li>
+<li><a class="hover:text-white transition-colors" href="products/desk-essentials-flat-box.html">Desk Essentials Flat Box</a></li>
+<li><a class="hover:text-white transition-colors" href="products/pure-bamboo-water-wipes.html">Pure Bamboo Water Wipes</a></li>
+<li><a class="hover:text-white transition-colors" href="products/everyday-pocket-packets.html">Everyday Pocket Packets</a></li>
+<li><a class="hover:text-white transition-colors" href="products/starter-nursery-pack.html">Starter Nursery Pack</a></li>
+<li><a class="hover:text-white transition-colors" href="products/curated-starter-box.html">Curated Starter Box</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-amber-300 mb-3">Customer Nest</h3>
+<ul class="space-y-2 text-xs text-gray-200">
+<li><a class="hover:text-white transition-colors" href="cart.html">Your Basket</a></li>
+<li><a class="hover:text-white transition-colors" href="order/track.html">Track Order</a></li>
+<li><a class="hover:text-white transition-colors" href="policies/shipping.html">Shipping &amp; Delivery</a></li>
+<li><a class="hover:text-white transition-colors" href="policies/returns.html">Returns, Refunds &amp; Cancellation</a></li>
+<li><a class="hover:text-white transition-colors" href="faq.html">FAQs</a></li>
+<li><a class="hover:text-white transition-colors" href="contact.html">Contact &amp; Grievances</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-amber-300 mb-3">Sustainability</h3>
+<p class="text-xs text-gray-200 mb-3 leading-relaxed">Every SOLOMO ESSENTIALS box saves roughly 0.8 kg of tree pulp and reduces micro-plastics in our waterways.</p>
+<!-- CLAIM(asci): display the certificate number, or drop the badge. -->
+<div class="inline-flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full text-[11px] font-semibold text-emerald-200">
+<span aria-hidden="true" class="material-symbols-outlined text-xs">forest</span> FSC Certified Bamboo — cert. no. TODO
+</div>
+</div>
+</div>
+<div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-300">
+<div>© 2026 SOLOMO ESSENTIALS. All rights reserved.</div>
+<div class="flex items-center gap-4 flex-wrap justify-center">
+<a class="hover:text-white transition-colors" href="policies/privacy.html">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="policies/terms.html">Terms of Sale</a>
+<!-- TODO(contact): wa.me needs the number, e.g. wa.me/919999999999 -->
+<a class="hover:text-white transition-colors flex items-center gap-1 text-emerald-300 font-semibold" href="https://wa.me/" rel="noopener" target="_blank">
+<span aria-hidden="true" class="material-symbols-outlined text-sm">chat</span> WhatsApp Care
+</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

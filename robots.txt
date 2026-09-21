@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+# Nothing to index on these — they are per-visitor or transactional.
+Disallow: /cart.html
+Disallow: /checkout.html
+Disallow: /order/
+Disallow: /search.html
+
+Sitemap: https://solomoessentials.example/sitemap.xml
