@@ -483,6 +483,30 @@ function checkoutPayload() {
   };
 }
 
+/* Orders are taken on WhatsApp for now: checkout opens a chat with the basket
+   and address pre-filled, and the team confirms payment there.
+   ponytail: prices in the message come from the browser — the team must check
+   them against the price list before taking money. Server checkout replaces this. */
+var WHATSAPP_NUMBER = '919540065180';
+var PAY_LABELS = { upi: 'UPI', card: 'Card', netbanking: 'Netbanking', cod: 'Cash on delivery' };
+
+function whatsappOrderUrl(a, paymentMode) {
+  var t = totals(cart, promoCode);
+  var lines = ['Hi SOLOMO ESSENTIALS, I would like to place an order.', '', '*Order*'];
+  for (var i = 0; i < cart.length; i++) {
+    var p = PRODUCTS[cart[i].sku];
+    lines.push((i + 1) + '. ' + p.name + ' (' + cart[i].sku + ') × ' + cart[i].qty + ' — ' + rupees(p.price * cart[i].qty));
+  }
+  lines.push('', 'Subtotal: ' + rupees(t.subtotal));
+  if (t.discount > 0) lines.push('Discount (' + t.promoLabel + '): −' + rupees(t.discount));
+  lines.push('Delivery: ' + (t.shipping === 0 ? 'FREE' : rupees(t.shipping)));
+  lines.push('*Total: ' + rupees(t.total) + '*', '');
+  lines.push('*Payment:* ' + (PAY_LABELS[paymentMode] || paymentMode), '');
+  lines.push('*Deliver to*', a.name, a.flat + ', ' + a.street, a.city + ', ' + a.state + ' — ' + a.pincode);
+  lines.push('Phone: ' + a.phone, 'Email: ' + a.email);
+  return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
+}
+
 function renderCheckoutSummary(t) {
   var box = document.getElementById('checkout-lines');
   if (!box) return;
@@ -566,6 +590,101 @@ function closeMobileNav() {
   nav.hidden = true;
   if (t) { t.setAttribute('aria-expanded', 'false'); t.setAttribute('aria-label', 'Open menu'); }
   if (i) i.textContent = 'menu';
+}
+
+/* --------------------------------------------------------------------------
+   8b. Newsletter pop-up. Once per browser, a few seconds in, never on the
+       basket, checkout or order pages where it would cost a sale.
+       A native <dialog> gives the focus trap, Esc and backdrop for free.
+
+       TODO(newsletter): nothing is sent yet. POST the email to your mailing
+       provider (Mailchimp, Klaviyo…) in the submit handler below, and record
+       consent. The address is deliberately not kept in localStorage.
+   -------------------------------------------------------------------------- */
+var POPUP_KEY = 'solomo.newsletter.v1';
+
+function scheduleNewsletter() {
+  if (load(POPUP_KEY, false)) return;
+  if (document.getElementById('checkout-lines') || document.getElementById('cart-page-items') ||
+      location.pathname.indexOf('/order/') !== -1) return;
+  if (!window.HTMLDialogElement) return;
+  (function wait() {
+    // Let the splash finish and the shopper look around first.
+    if (document.getElementById('splash') || cartIsOpen()) { setTimeout(wait, 1500); return; }
+    setTimeout(function () {
+      if (cartIsOpen() || document.querySelector('dialog[open]')) return;
+      openNewsletter();
+    }, 5000);
+  })();
+}
+
+function openNewsletter() {
+  var d = el('dialog', 'p-0 w-[min(92vw,760px)] max-w-none rounded-3xl border-0 shadow-2xl bg-white text-navy-brand backdrop:bg-navy-brand/50 backdrop:backdrop-blur-xs');
+  d.setAttribute('aria-labelledby', 'nl-title');
+
+  var wrap = el('div', 'grid sm:grid-cols-2');
+  var art = el('div', 'hidden sm:flex items-center justify-center bg-cream-surface p-8');
+  var img = document.createElement('img');
+  img.src = imageUrl(PRODUCTS['TRIO-BX'].img);
+  img.alt = '';
+  img.className = 'w-full max-w-[260px] h-auto rounded-2xl';
+  art.appendChild(img);
+  wrap.appendChild(art);
+
+  var body = el('div', 'relative p-7 sm:p-9');
+  var close = el('button', 'absolute top-3 right-3 w-9 h-9 rounded-full bg-cream-surface hover:bg-sand-border flex items-center justify-center text-navy-brand transition-colors');
+  close.type = 'button';
+  close.setAttribute('aria-label', 'Close');
+  close.appendChild(el('span', 'material-symbols-outlined text-lg', 'close'));
+  close.addEventListener('click', function () { d.close(); });
+  body.appendChild(close);
+
+  body.appendChild(el('p', 'text-[11px] font-extrabold uppercase tracking-widest text-orange-brand', 'Join the SOLOMO circle'));
+  var h = el('h2', 'font-serif text-3xl font-semibold leading-tight mt-2', 'Take 10% off your first box');
+  h.id = 'nl-title';
+  body.appendChild(h);
+  var lead = el('p', 'text-sm text-slate-body mt-3 leading-relaxed', 'Subscribe for new launches, bamboo care tips and early access to offers. We will show your code straight away.');
+  body.appendChild(lead);
+
+  var form = el('form', 'mt-5 space-y-3');
+  var label = el('label', 'sr-only', 'Email address');
+  label.htmlFor = 'nl-email';
+  var input = el('input', 'w-full bg-cream-bg border-2 border-sand-border rounded-full px-5 py-3 text-sm font-semibold text-navy-brand placeholder:text-slate-body outline-none focus:ring-0 focus:border-navy-brand');
+  input.type = 'email'; input.id = 'nl-email'; input.name = 'email';
+  input.required = true; input.autocomplete = 'email'; input.placeholder = 'you@example.com';
+  input.autofocus = true;                      // showModal() focuses this, not the close button
+  var submit = el('button', 'w-full py-3.5 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-sm font-bold shadow-md shadow-orange-brand/20 transition-colors', 'Unlock my 10% off');
+  submit.type = 'submit';
+  form.appendChild(label); form.appendChild(input); form.appendChild(submit);
+  body.appendChild(form);
+
+  var no = el('button', 'block mx-auto mt-3 text-xs font-semibold text-slate-body hover:text-navy-brand underline underline-offset-2', 'No thanks, I will pay full price');
+  no.type = 'button';
+  no.addEventListener('click', function () { d.close(); });
+  body.appendChild(no);
+  body.appendChild(el('p', 'text-[11px] text-slate-body text-center mt-4', 'Unsubscribe any time. We never share your email.'));
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    // TODO(newsletter): send input.value to the mailing provider here.
+    save(POPUP_KEY, true);
+    form.remove(); no.remove();
+    h.textContent = 'You are in!';
+    lead.textContent = 'Use this code at checkout for 10% off your first order:';
+    var code = el('p', 'mt-4 text-center font-serif text-3xl font-semibold tracking-widest text-orange-brand bg-orange-light border-2 border-dashed border-orange-brand rounded-2xl py-3', 'COZY10');
+    body.insertBefore(code, body.lastChild);
+    var shop = el('a', 'block mt-4 w-full py-3.5 rounded-full bg-navy-brand hover:bg-navy-muted text-white text-sm font-bold text-center transition-colors', 'Start shopping');
+    shop.href = BASE + 'shop.html';
+    body.insertBefore(shop, body.lastChild);
+    shop.focus();
+  });
+
+  wrap.appendChild(body);
+  d.appendChild(wrap);
+  d.addEventListener('click', function (e) { if (e.target === d) d.close(); }); // backdrop click
+  d.addEventListener('close', function () { save(POPUP_KEY, true); d.remove(); });
+  document.body.appendChild(d);
+  d.showModal();
 }
 
 /* --------------------------------------------------------------------------
@@ -685,11 +804,16 @@ function selfCheck() {
   ok(totals([], 'COZY10').discount === 0, 'empty basket cannot earn a discount');
 
   /* The payload must never leak a price. */
-  var before = cart;
+  var before = cart, beforePromo = promoCode;
+  promoCode = null;
   cart = [{ sku: 'CUBE-06', qty: 3 }];
   var body = JSON.stringify(checkoutPayload());
   ok(!/449|price|mrp/i.test(body), 'payload carries no price: ' + body);
+  var wa = decodeURIComponent(whatsappOrderUrl({ name: 'A', flat: 'B', street: 'C', city: 'D', state: 'E', pincode: '110001', phone: '9999999999', email: 'a@b.c' }, 'upi'));
+  ok(wa.indexOf('https://wa.me/919540065180?text=') === 0, 'WhatsApp link goes to the order number');
+  ok(wa.indexOf('× 3 — ₹1,347') !== -1 && wa.indexOf('*Total: ₹1,347*') !== -1, 'WhatsApp message carries lines and total: ' + wa);
   cart = before;
+  promoCode = beforePromo;
 
   /* Every SKU needs a slug and a category that a tab can reach. */
   for (var sku in PRODUCTS) {
@@ -733,20 +857,9 @@ function boot() {
     })(tabs[i]);
   }
 
-  var navLinks = document.querySelectorAll('[data-nav-cat]');
-  for (var j = 0; j < navLinks.length; j++) {
-    (function (link) {
-      link.addEventListener('click', function () {
-        if (!cards.length) return;            // on another page, just follow the href
-        activeCat = link.dataset.navCat;
-        query = '';
-        ['site-search', 'site-search-mobile'].forEach(function (id) {
-          var e = document.getElementById(id); if (e) e.value = '';
-        });
-        paintTabs(); applyFilters(); closeMobileNav();
-      });
-    })(navLinks[j]);
-  }
+  /* The nav links to shop.html?cat=table etc. — honour it on any page with tabs. */
+  var urlCat = (location.search.match(/[?&]cat=(\w+)/) || [])[1];
+  if (urlCat && CATEGORIES[urlCat]) activeCat = urlCat;
 
   wireSearch('site-search');
   wireSearch('site-search-mobile');
@@ -798,6 +911,7 @@ function boot() {
   applyFilters();
   paintWishlist();
   renderAll();
+  scheduleNewsletter();
 
   if (location.hostname === 'localhost' || location.hostname === '127.0.0.1' ||
       location.protocol === 'file:' || location.search.indexOf('selfcheck') !== -1) {

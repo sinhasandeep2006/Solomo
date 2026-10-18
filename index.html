@@ -3,7 +3,8 @@
   ============================================================================
   SOLOMO ESSENTIALS — index.html  (production candidate, v2 of index.source.html)
   ============================================================================
-  Design is byte-for-byte the mockup. What changed is the logic underneath.
+  Layout follows the Oct 2026 homepage mockup (Google Doc). Header is stamped
+  by tools/stamp-header.js; the newsletter pop-up lives in assets/js/solomo.js.
 
   FIXED IN THIS VERSION
     · Buy buttons pass a SKU, never a price.        (was: onclick="addToCart('…', 449)")
@@ -180,36 +181,62 @@
 <span class="opacity-40">|</span>
 <span class="text-orange-brand font-bold"><span class="hidden sm:inline">Use code </span>COZY10<span class="hidden sm:inline"> for</span><span class="sm:hidden"> ·</span> 10% off</span>
 </div>
-<!-- Main Navigation Chrome — VERSION A: one row. Shop links bold, content links
-     lighter behind a divider. Same colours and radii as index.html; only the
-     nav hierarchy and the typeface differ. -->
-<header class="sticky top-0 z-40 bg-[#FFFDF7]/90 backdrop-blur-md border-b border-sand-border transition-all">
+<!-- HEADER — stamped by tools/stamp-header.js. Edit it there, not here. -->
+<header class="sticky top-0 z-40 bg-[#FFFDF7]/90 backdrop-blur-md border-b border-sand-border">
 <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center gap-6">
-<a aria-label="SOLOMO ESSENTIALS home" class="shrink-0" href="#top">
+<a aria-label="SOLOMO ESSENTIALS home" class="shrink-0" href="index.html">
 <img alt="SOLOMO ESSENTIALS" class="h-16 w-auto mix-blend-multiply" height="64" src="assets/img/logo.png" width="89"/>
 </a>
-<nav aria-label="Main" class="hidden lg:flex items-center gap-5 flex-1 min-w-0">
-<div class="flex items-center gap-5">
-<a class="text-[13.5px] font-extrabold text-navy-brand whitespace-nowrap py-2 border-b-2 border-transparent hover:border-orange-brand transition-colors" href="#top">Home</a>
+<nav aria-label="Main" class="hidden lg:flex self-stretch items-center gap-5 flex-1 min-w-0">
+<div class="flex items-center gap-5 h-full">
+<a class="text-[13.5px] font-extrabold text-navy-brand whitespace-nowrap py-2 border-b-2 border-transparent hover:border-orange-brand transition-colors" href="index.html">Home</a>
 <a class="text-[13.5px] font-extrabold text-navy-brand whitespace-nowrap py-2 border-b-2 border-transparent hover:border-orange-brand transition-colors" href="about.html">About</a>
-<a class="text-[13.5px] font-extrabold text-navy-brand whitespace-nowrap py-2 border-b-2 border-transparent hover:border-orange-brand transition-colors" href="shop.html">Shop All</a>
+<div class="group h-full flex items-center">
+<a class="text-[13.5px] font-extrabold text-navy-brand whitespace-nowrap py-2 border-b-2 border-transparent hover:border-orange-brand transition-colors group-hover:border-orange-brand group-focus-within:border-orange-brand" href="shop.html">Shop All</a>
+<div class="absolute left-0 right-0 top-full bg-white border-y border-sand-border shadow-xl invisible opacity-0 -translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 transition-all duration-200">
+<div class="max-w-7xl mx-auto px-10 py-10 grid grid-cols-5 gap-8">
+<div><p class="text-[13px] font-serif font-semibold uppercase tracking-wide text-orange-brand mb-4">Shop</p><ul><li><a class="block py-1.5 text-[15px] text-navy-brand hover:text-orange-brand transition-colors" href="shop.html">All essentials</a></li>
+<li><a class="block py-1.5 text-[15px] text-navy-brand hover:text-orange-brand transition-colors" href="index.html#bestsellers">Bestsellers</a></li>
+<li><a class="block py-1.5 text-[15px] text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=bundle">Bundles &amp; gifting</a></li>
+<li><a class="block py-1.5 text-[15px] text-navy-brand hover:text-orange-brand transition-colors" href="faq.html">Pack size guide</a></li></ul></div>
+<div><p class="text-[13px] font-serif font-semibold uppercase tracking-wide text-orange-brand mb-4">Shop by room</p><ul><li><a class="block py-1.5 text-[15px] text-navy-brand hover:text-orange-brand transition-colors" href="products/bedside-comfort-cube.html">Bedside</a></li>
+<li><a class="block py-1.5 text-[15px] text-navy-brand hover:text-orange-brand transition-colors" href="products/desk-essentials-flat-box.html">Study &amp; office</a></li>
+<li><a class="block py-1.5 text-[15px] text-navy-brand hover:text-orange-brand transition-colors" href="products/starter-nursery-pack.html">Nursery</a></li>
+<li><a class="block py-1.5 text-[15px] text-navy-brand hover:text-orange-brand transition-colors" href="products/everyday-pocket-packets.html">Handbag &amp; car</a></li></ul></div>
+<div><p class="text-[13px] font-serif font-semibold uppercase tracking-wide text-orange-brand mb-4">Shop by format</p><ul><li><a class="block py-1.5 text-[15px] text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=table">Table boxes</a></li>
+<li><a class="block py-1.5 text-[15px] text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=wipes">Water wipes</a></li>
+<li><a class="block py-1.5 text-[15px] text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=pocket">Pocket packets</a></li>
+<li><a class="block py-1.5 text-[15px] text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=bundle">Starter boxes</a></li></ul></div>
+<a class="group/card block" href="products/curated-starter-box.html">
+<div class="aspect-[208/260] rounded-2xl overflow-hidden bg-cream-surface"><img alt="The SOLOMO ESSENTIALS mascot trio" class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC64BRG-KrSFDkV4nRBV-v5lwuWYS7f7iAJ63vx6rF2OONtExMgZMBI-HChmOAC4mnScEp2rcYOoHBdToo_i3nAKI3N2GCQPIrmmK-n-xRL-XHJHwBv3KUzZF2ms-N-p6T44q5voPBsUa4HwKJ_kCTtGI3AsmFAIq6m6HCWOjmsl1XaJ42RGsc0BT5yyB0qdsJEsJSnxMtNwh6cXtXL0D4kRd_gYBTuAmQkXanJHkAWoH5RKri3qZ__2yjOjJBwSqAxDA"/></div>
+<p class="mt-3 font-serif font-semibold text-navy-brand group-hover/card:text-orange-brand transition-colors">Curated Starter Box</p>
+<p class="text-xs text-slate-body mt-0.5">Shop now →</p>
+</a>
+<a class="group/card block" href="products/starter-nursery-pack.html">
+<div class="aspect-[208/260] rounded-2xl overflow-hidden bg-cream-surface"><img alt="A SOLOMO ESSENTIALS box in a nursery" class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp1V6ChSgc7XLc9oLSds2wcl5Z4kDvbmRih51Ypx_Cf2pTtW-IiTt6iprbUyFYoZuYO3R0UsIPI3v3VWEQb-oxwA31zPA4z3QnXmS2dH-EFOOJFt5JlaUSeSQbdRfX3N0zBZ_ZBW2B-sbz0nAnoKJZCcFOxb5wjE2iMMk1ZzwWvuP8Ccrzlz8_tp3bPQSo2ji2AW-e77jXjoU42-dMn3bF3Jys9EtbCZLC5DdVyQ3b5QCHUeXVC0QKtVRQisbWholt_g"/></div>
+<p class="mt-3 font-serif font-semibold text-navy-brand group-hover/card:text-orange-brand transition-colors">Starter Nursery Pack</p>
+<p class="text-xs text-slate-body mt-0.5">Shop now →</p>
+</a>
+</div>
+</div>
+</div>
 <a class="text-[13.5px] font-extrabold text-navy-brand whitespace-nowrap py-2 border-b-2 border-transparent hover:border-orange-brand transition-colors" href="contact.html">Contact</a>
 </div>
 <span aria-hidden="true" class="w-px h-4 bg-sand-border shrink-0"></span>
 <div class="flex items-center gap-4">
-<a class="text-xs font-semibold text-slate-body hover:text-navy-brand whitespace-nowrap py-2 transition-colors" href="#story">Our Story</a>
-<a class="text-xs font-semibold text-slate-body hover:text-navy-brand whitespace-nowrap py-2 transition-colors" href="#benefits">Why Unbleached</a>
+<a class="text-xs font-semibold text-slate-body hover:text-navy-brand whitespace-nowrap py-2 transition-colors" href="index.html#story">Our Story</a>
+<a class="text-xs font-semibold text-slate-body hover:text-navy-brand whitespace-nowrap py-2 transition-colors" href="index.html#benefits">Why Unbleached</a>
 </div>
 </nav>
 <div class="flex items-center gap-3 sm:gap-4 ml-auto shrink-0">
 <form action="search.html" data-search class="hidden sm:flex items-center bg-white border-2 border-sand-border rounded-full px-3.5 py-1.5 text-xs text-slate-body gap-2 focus-within:border-navy-brand transition-colors" method="get" role="search">
 <span aria-hidden="true" class="material-symbols-outlined text-sm text-navy-muted">search</span>
 <label class="sr-only" for="site-search">Search products</label>
-<input autocomplete="off" class="bg-transparent border-none outline-none text-navy-brand placeholder:text-slate-body text-xs font-semibold w-28 lg:w-36" id="site-search" name="q" placeholder="Search products" type="search"/>
+<input autocomplete="off" class="bg-transparent border-none outline-none focus:ring-0 text-navy-brand placeholder:text-slate-body text-xs font-semibold w-28 lg:w-36" id="site-search" name="q" placeholder="Search products" type="search"/>
 </form>
 <a aria-label="Your wishlist" class="relative w-10 h-10 rounded-full bg-white border-2 border-sand-border hover:border-orange-brand flex items-center justify-center text-navy-brand hover:text-orange-brand transition-colors shrink-0" href="wishlist.html">
 <span aria-hidden="true" class="material-symbols-outlined text-xl">favorite</span>
-<span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-orange-brand text-white text-[11px] flex items-center justify-center font-extrabold" hidden id="nav-wish-count">0</span>
+<span class="hidden absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-orange-brand text-white text-[11px] flex items-center justify-center font-extrabold" hidden id="nav-wish-count">0</span>
 </a>
 <button aria-controls="cart-drawer" aria-label="Open your basket" class="relative flex items-center gap-2 bg-navy-brand hover:bg-navy-muted text-white text-xs font-extrabold px-4 py-2.5 rounded-full shadow-sm transition-transform active:scale-95" onclick="openCart()" type="button">
 <span aria-hidden="true" class="material-symbols-outlined text-base">shopping_bag</span>
@@ -221,42 +248,30 @@
 </button>
 </div>
 </div>
-<nav aria-label="Mobile" class="lg:hidden border-t border-sand-border bg-cream-bg px-6 py-4" hidden id="mobile-nav">
-<p class="text-[11px] font-extrabold uppercase tracking-widest text-orange-brand mb-2">Shop</p>
-<ul class="flex flex-col gap-0.5 text-sm">
-<li><a class="block py-2 font-extrabold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=table">Table Boxes</a></li>
-<li><a class="block py-2 font-extrabold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=wipes">Pure Wipes</a></li>
-<li><a class="block py-2 font-extrabold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=pocket">Pocket Travel</a></li>
-<li><a class="block py-2 font-extrabold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=bundle">Bundles</a></li>
-<li><a class="block py-2 font-extrabold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html">Shop All</a></li>
-</ul>
-<p class="text-[11px] font-extrabold uppercase tracking-widest text-orange-brand mt-4 mb-2">All products</p>
-<ul class="flex flex-col gap-0.5 text-sm">
-<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/bedside-comfort-cube.html">Bedside Comfort Cube</a></li>
-<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/desk-essentials-flat-box.html">Desk Essentials Flat Box</a></li>
-<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/pure-bamboo-water-wipes.html">Pure Bamboo Water Wipes</a></li>
-<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/everyday-pocket-packets.html">Everyday Pocket Packets</a></li>
-<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/starter-nursery-pack.html">Starter Nursery Pack</a></li>
-<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/curated-starter-box.html">Curated Starter Box</a></li>
-</ul>
-<p class="text-[11px] font-extrabold uppercase tracking-widest text-orange-brand mt-4 mb-2">Learn</p>
-<ul class="flex flex-col gap-0.5 text-sm">
-<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="#story" onclick="closeMobileNav()">Our Story</a></li>
-<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="#benefits" onclick="closeMobileNav()">Why Unbleached</a></li>
-<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="#reviews" onclick="closeMobileNav()">Reviews</a></li>
-</ul>
-<p class="text-[11px] font-extrabold uppercase tracking-widest text-orange-brand mt-4 mb-2">Help</p>
-<ul class="flex flex-col gap-0.5 text-sm">
-<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="cart.html">Your Basket</a></li>
-<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="wishlist.html">Your Wishlist</a></li>
-<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="order/track.html">Track Order</a></li>
-<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="faq.html">FAQs</a></li>
-<li><a class="block py-2 font-semibold text-slate-body hover:text-navy-brand transition-colors" href="contact.html">Contact &amp; Grievances</a></li>
-</ul>
-<form action="search.html" data-search class="mt-4 pt-3 border-t border-sand-border flex items-center bg-white border-2 border-sand-border rounded-full px-3.5 py-2 gap-2" method="get" role="search">
+<nav aria-label="Mobile" class="lg:hidden border-t border-sand-border bg-cream-bg px-6 pb-6 max-h-[75vh] overflow-y-auto" hidden id="mobile-nav">
+<p class="text-[11px] font-extrabold uppercase tracking-widest text-orange-brand mt-4 mb-2">Shop</p><ul class="text-sm"><li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html">New In</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html">All essentials</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="index.html#bestsellers">Bestsellers</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=bundle">Bundles &amp; gifting</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="faq.html">Pack size guide</a></li></ul>
+<p class="text-[11px] font-extrabold uppercase tracking-widest text-orange-brand mt-4 mb-2">Shop by room</p><ul class="text-sm"><li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/bedside-comfort-cube.html">Bedside</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/desk-essentials-flat-box.html">Study &amp; office</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/starter-nursery-pack.html">Nursery</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="products/everyday-pocket-packets.html">Handbag &amp; car</a></li></ul>
+<p class="text-[11px] font-extrabold uppercase tracking-widest text-orange-brand mt-4 mb-2">Shop by format</p><ul class="text-sm"><li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=table">Table boxes</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=wipes">Water wipes</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=pocket">Pocket packets</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="shop.html?cat=bundle">Starter boxes</a></li></ul>
+<p class="text-[11px] font-extrabold uppercase tracking-widest text-orange-brand mt-4 mb-2">More</p><ul class="text-sm"><li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="about.html">Our Story</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="index.html#journal">Journal</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="wishlist.html">Your wishlist</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="order/track.html">Track order</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="faq.html">FAQs</a></li>
+<li><a class="block py-2 font-semibold text-navy-brand hover:text-orange-brand transition-colors" href="contact.html">Contact &amp; Grievances</a></li></ul>
+<form action="search.html" data-search class="mt-4 flex items-center bg-white border-2 border-sand-border rounded-full px-3.5 py-2 gap-2" method="get" role="search">
 <span aria-hidden="true" class="material-symbols-outlined text-sm text-navy-muted">search</span>
 <label class="sr-only" for="site-search-mobile">Search products</label>
-<input autocomplete="off" class="bg-transparent border-none outline-none text-navy-brand placeholder:text-slate-body text-xs font-semibold flex-1" id="site-search-mobile" name="q" placeholder="Search products" type="search"/>
+<input autocomplete="off" class="bg-transparent border-none outline-none focus:ring-0 text-navy-brand placeholder:text-slate-body text-xs font-semibold flex-1" id="site-search-mobile" name="q" placeholder="Search products" type="search"/>
 </form>
 </nav>
 </header>
@@ -339,6 +354,427 @@
 </div>
 </div>
 </section>
+<!-- CATALOG — six cards, filterable. The two bundles were previously buyable but unbrowsable. -->
+<section class="py-16 lg:py-24 bg-cream-bg" id="catalog">
+<div class="max-w-7xl mx-auto px-6 lg:px-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<div class="inline-flex items-center gap-1.5 text-orange-brand font-bold text-xs uppercase tracking-wider mb-2">
+<span aria-hidden="true" class="material-symbols-outlined text-sm">potted_plant</span>
+              Everyday Collection
+            </div>
+<h2 class="text-3xl sm:text-4xl font-bold text-navy-brand tracking-tight">
+              Curated for Living Spaces &amp; Nursery Care
+            </h2>
+</div>
+<!-- Category tabs. In the mockup these were styled buttons with no handler. -->
+<div aria-label="Filter by category" class="flex flex-nowrap items-center gap-1 max-w-full overflow-x-auto [scrollbar-width:none] bg-cream-surface border border-sand-border p-1.5 rounded-full text-xs font-semibold" id="category-tabs" role="tablist">
+<button aria-selected="true" class="px-4 py-2 rounded-full" data-cat="all" role="tab" type="button">All Essentials</button>
+<button aria-selected="false" class="px-4 py-2 rounded-full" data-cat="table" role="tab" type="button">Table Boxes</button>
+<button aria-selected="false" class="px-4 py-2 rounded-full" data-cat="wipes" role="tab" type="button">Pure Wipes</button>
+<button aria-selected="false" class="px-4 py-2 rounded-full" data-cat="pocket" role="tab" type="button">Pocket Travel</button>
+<!-- Added: the four original tabs had no home for a bundle, so NURS-06 and TRIO-BX were unreachable. -->
+<button aria-selected="false" class="px-4 py-2 rounded-full" data-cat="bundle" role="tab" type="button">Bundles</button>
+</div>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5" id="product-grid">
+<!-- Product 1 -->
+<article class="group bg-white rounded-2xl p-3 sm:p-4 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-cat="table" data-name="bedside comfort cube tissue box 3 ply" data-sku="CUBE-06">
+<div>
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center mb-3">
+<span class="absolute top-3 left-3 z-10 bg-orange-brand text-white text-[9px] sm:text-[11px] font-extrabold uppercase px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full max-w-[75%] truncate shadow-sm">Bestseller</span>
+<button aria-label="Save Bedside Comfort Cube to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="CUBE-06" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span>
+</button>
+<img alt="SOLOMO ESSENTIALS Bedside Comfort Cube, a bamboo tissue cube box" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAksj6r-3DEkPXitNt7ymcbOrO2T7LTHTL9iaZBadocjolL1WWQbWeePMt2Z5R88fgXSKHMgNxD1Sk2J7N1vtWp9JTcD58EjrSpnU8JrwU9WlvJ2ow7BjqbJLBltkIc0Ic5iYoj9ot1AsuAQV9ePTJc48GXLqSIGWQb_9Vy0vhQ6SfsWCg-pomO2j2Anssqig4rtZn7yZUWCGgnDPx7oBHqmBqUCMvF0ZepvI-uCsIdz6ivDD_cNoEPODonByS5WnFxgQ"/>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-amber-500 font-bold mb-1">
+<span aria-hidden="true" class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+<span class="text-slate-body font-normal text-[11px]">(1,840 reviews)</span>
+</div>
+<h3 class="text-sm sm:text-[15px] leading-snug font-bold text-navy-brand group-hover:text-orange-brand transition-colors">
+<a class="hover:underline decoration-orange-brand decoration-2 underline-offset-2" href="products/bedside-comfort-cube.html">SOLOMO ESSENTIALS Bedside Comfort Cube</a>
+</h3>
+<p class="text-xs text-slate-body mt-1">Pack of 6 Cubes • 100% Bamboo • 3-Ply Pure Softness</p>
+<p class="text-[11px] text-slate-body mt-1.5">Net qty: 6 cubes × 100 pulls · Country of origin: India</p>
+</div>
+<div class="mt-3 pt-3 border-t border-sand-border space-y-2.5">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<div>
+<span class="text-base font-extrabold text-navy-brand" data-price>₹449</span>
+<!-- LEGAL(metrology): MRP must read "inclusive of all taxes" and be a genuine former price. -->
+<span class="text-xs text-slate-body line-through ml-1">₹599</span>
+<span class="block text-[11px] text-slate-body">MRP incl. all taxes</span>
+</div>
+<span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Save 25%</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-full bg-cream-surface hover:bg-sand-border text-navy-brand text-[11px] sm:text-xs whitespace-nowrap font-bold transition-colors flex items-center justify-center gap-1 active:scale-95" onclick="addToCart('CUBE-06')" type="button">
+<span aria-hidden="true" class="hidden sm:inline material-symbols-outlined text-sm">add_shopping_cart</span>
+<span>Add</span>
+</button>
+<button class="py-2 px-2 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-[11px] sm:text-xs whitespace-nowrap font-bold transition-all shadow-sm flex items-center justify-center gap-1 active:scale-95" onclick="directBuy('CUBE-06')" type="button">
+<span aria-hidden="true" class="hidden sm:inline material-symbols-outlined text-sm">bolt</span>
+<span>Buy Now</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product 2 -->
+<article class="group bg-white rounded-2xl p-3 sm:p-4 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-cat="table" data-name="desk essentials flat box office study sheets" data-sku="DESK-04">
+<div>
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center mb-3">
+<span class="absolute top-3 left-3 z-10 bg-navy-brand text-white text-[9px] sm:text-[11px] font-extrabold uppercase px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full max-w-[75%] truncate shadow-sm">Study &amp; Office</span>
+<button aria-label="Save Desk Essentials Flat Box to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="DESK-04" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span>
+</button>
+<img alt="SOLOMO ESSENTIALS Desk Essentials Flat Box of bamboo tissues" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGvT3ApiYhXu5Pxwil5jndZ6QJum8WllTouUTy2420d5sQBeZUG4rm-TkzsQIsCEBEMKMtOUK-VM-6BdI39SaDiKR5bYOGWhClp7PbEa5z8veDUS_r1mqLIbIALY3QO9sAuHMZH_c3YI6qc8F2VwWsn4YXI6KWn6jOEAexxhdTeq78p7jzqHDaB0Oxl8hr8YlCLFtea1WQtnU0FdvRzzEVoxbSp2nnRC6J99BKt_Lni_WjPLrIUkj-aMbsqn0PgIBvcg"/>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-amber-500 font-bold mb-1">
+<span aria-hidden="true" class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>5.0</span>
+<span class="text-slate-body font-normal text-[11px]">(920 reviews)</span>
+</div>
+<h3 class="text-sm sm:text-[15px] leading-snug font-bold text-navy-brand group-hover:text-orange-brand transition-colors">
+<a class="hover:underline decoration-orange-brand decoration-2 underline-offset-2" href="products/desk-essentials-flat-box.html">SOLOMO ESSENTIALS Desk Essentials Flat Box</a>
+</h3>
+<p class="text-xs text-slate-body mt-1">Pack of 4 Flat Rectangles • 160 Sheets each • Zero Dust</p>
+<p class="text-[11px] text-slate-body mt-1.5">Net qty: 4 boxes × 160 sheets · Country of origin: India</p>
+</div>
+<div class="mt-3 pt-3 border-t border-sand-border space-y-2.5">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<div>
+<span class="text-base font-extrabold text-navy-brand" data-price>₹599</span>
+<span class="text-xs text-slate-body line-through ml-1">₹749</span>
+<span class="block text-[11px] text-slate-body">MRP incl. all taxes</span>
+</div>
+<span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Save 20%</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-full bg-cream-surface hover:bg-sand-border text-navy-brand text-[11px] sm:text-xs whitespace-nowrap font-bold transition-colors flex items-center justify-center gap-1 active:scale-95" onclick="addToCart('DESK-04')" type="button">
+<span aria-hidden="true" class="hidden sm:inline material-symbols-outlined text-sm">add_shopping_cart</span>
+<span>Add</span>
+</button>
+<button class="py-2 px-2 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-[11px] sm:text-xs whitespace-nowrap font-bold transition-all shadow-sm flex items-center justify-center gap-1 active:scale-95" onclick="directBuy('DESK-04')" type="button">
+<span aria-hidden="true" class="hidden sm:inline material-symbols-outlined text-sm">bolt</span>
+<span>Buy Now</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product 3 -->
+<article class="group bg-white rounded-2xl p-3 sm:p-4 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-cat="wipes" data-name="pure bamboo water wipes baby fragrance free" data-sku="WIPE-06">
+<div>
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center mb-3">
+<span class="absolute top-3 left-3 z-10 bg-blue-brand text-white text-[9px] sm:text-[11px] font-extrabold uppercase px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full max-w-[75%] truncate shadow-sm">99.9% Pure Water</span>
+<button aria-label="Save Pure Bamboo Water Wipes to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="WIPE-06" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span>
+</button>
+<img alt="SOLOMO ESSENTIALS Pure Bamboo Water Wipes flip-top pack" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEWCpskVheGhdvZdsNxbZQfalo_0tq2wj4JWPpQglGi4ZActXj1e7oYPn0g4kKKb312ftUJdfpOzX276qtYZ-2KkVOsvWiYqmv6yUmePEDvYJv_pl0v4vW5aUClSqhDgadITnaZMM9qr4UPYfi1L7K3zMMrln-CZNfaysCcUu4w4k7IAMIiqI7keJuoKbGNQ-WihkiBncfQLyfJNBF8Cg5KhqWi-08Wdm_P1pwpMCAJA-30DTv5bOC"/>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-amber-500 font-bold mb-1">
+<span aria-hidden="true" class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.8</span>
+<span class="text-slate-body font-normal text-[11px]">(640 reviews)</span>
+</div>
+<h3 class="text-sm sm:text-[15px] leading-snug font-bold text-navy-brand group-hover:text-orange-brand transition-colors">
+<a class="hover:underline decoration-orange-brand decoration-2 underline-offset-2" href="products/pure-bamboo-water-wipes.html">SOLOMO ESSENTIALS Pure Bamboo Water Wipes</a>
+</h3>
+<p class="text-xs text-slate-body mt-1">Pack of 6 (480 Wipes) • Flip Top • Fragrance Free</p>
+<p class="text-[11px] text-slate-body mt-1.5">Net qty: 6 packs × 80 wipes · Country of origin: India</p>
+</div>
+<div class="mt-3 pt-3 border-t border-sand-border space-y-2.5">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<div>
+<span class="text-base font-extrabold text-navy-brand" data-price>₹699</span>
+<span class="text-xs text-slate-body line-through ml-1">₹899</span>
+<span class="block text-[11px] text-slate-body">MRP incl. all taxes</span>
+</div>
+<span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Save 22%</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-full bg-cream-surface hover:bg-sand-border text-navy-brand text-[11px] sm:text-xs whitespace-nowrap font-bold transition-colors flex items-center justify-center gap-1 active:scale-95" onclick="addToCart('WIPE-06')" type="button">
+<span aria-hidden="true" class="hidden sm:inline material-symbols-outlined text-sm">add_shopping_cart</span>
+<span>Add</span>
+</button>
+<button class="py-2 px-2 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-[11px] sm:text-xs whitespace-nowrap font-bold transition-all shadow-sm flex items-center justify-center gap-1 active:scale-95" onclick="directBuy('WIPE-06')" type="button">
+<span aria-hidden="true" class="hidden sm:inline material-symbols-outlined text-sm">bolt</span>
+<span>Buy Now</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product 4 -->
+<article class="group bg-white rounded-2xl p-3 sm:p-4 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-cat="pocket" data-name="everyday pocket packets travel car handbag" data-sku="POCK-18">
+<div>
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center mb-3">
+<span class="absolute top-3 left-3 z-10 bg-cream-surface text-navy-brand border border-sand-border text-[9px] sm:text-[11px] font-extrabold uppercase px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full max-w-[75%] truncate shadow-sm">On-the-go</span>
+<button aria-label="Save Everyday Pocket Packets to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="POCK-18" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span>
+</button>
+<img alt="SOLOMO ESSENTIALS Everyday Pocket Packets for bag and car" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_4O5bSZ5-N2f4R621vc7PL5wCFbjVPL7A58tnST4VWG8bj2mCbdwRJD0NMAV-nZDE0NeE-td-LpxGvllOXUXotG1wv9I5Ysf1UaavXM9chXzdCSoj57Hdg2vN5dPdtlg_GMudjOIi0Av5BZPTGF4SZKpE6eXM9-KIZ4kCujnQFGtYrjSYCs4i6GIE0L_3gusUxxs_9Rj2A_xpOf5uX7OfTBRdSWu0YsiWklyPepYaF86QPAOpQMmK"/>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-amber-500 font-bold mb-1">
+<span aria-hidden="true" class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+<span class="text-slate-body font-normal text-[11px]">(410 reviews)</span>
+</div>
+<h3 class="text-sm sm:text-[15px] leading-snug font-bold text-navy-brand group-hover:text-orange-brand transition-colors">
+<a class="hover:underline decoration-orange-brand decoration-2 underline-offset-2" href="products/everyday-pocket-packets.html">SOLOMO ESSENTIALS Everyday Pocket Packets</a>
+</h3>
+<p class="text-xs text-slate-body mt-1">Pack of 18 • Compact handbag &amp; car packs • 4-Ply reinforced</p>
+<p class="text-[11px] text-slate-body mt-1.5">Net qty: 18 packets × 10 sheets · Country of origin: India</p>
+</div>
+<div class="mt-3 pt-3 border-t border-sand-border space-y-2.5">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<div>
+<span class="text-base font-extrabold text-navy-brand" data-price>₹349</span>
+<span class="text-xs text-slate-body line-through ml-1">₹420</span>
+<span class="block text-[11px] text-slate-body">MRP incl. all taxes</span>
+</div>
+<span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Save 17%</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-full bg-cream-surface hover:bg-sand-border text-navy-brand text-[11px] sm:text-xs whitespace-nowrap font-bold transition-colors flex items-center justify-center gap-1 active:scale-95" onclick="addToCart('POCK-18')" type="button">
+<span aria-hidden="true" class="hidden sm:inline material-symbols-outlined text-sm">add_shopping_cart</span>
+<span>Add</span>
+</button>
+<button class="py-2 px-2 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-[11px] sm:text-xs whitespace-nowrap font-bold transition-all shadow-sm flex items-center justify-center gap-1 active:scale-95" onclick="directBuy('POCK-18')" type="button">
+<span aria-hidden="true" class="hidden sm:inline material-symbols-outlined text-sm">bolt</span>
+<span>Buy Now</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product 5 — ADDED. Sold by the living-room card and the orange banner, but had no card. -->
+<article class="group bg-white rounded-2xl p-3 sm:p-4 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-cat="bundle" data-name="starter nursery pack bundle baby six boxes" data-sku="NURS-06">
+<div>
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center mb-3">
+<span class="absolute top-3 left-3 z-10 bg-emerald-600 text-white text-[9px] sm:text-[11px] font-extrabold uppercase px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full max-w-[75%] truncate shadow-sm">Nursery Bundle</span>
+<button aria-label="Save Starter Nursery Pack to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="NURS-06" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span>
+</button>
+<img alt="SOLOMO ESSENTIALS Starter Nursery Pack beside a plush bunny and baby bottle" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp1V6ChSgc7XLc9oLSds2wcl5Z4kDvbmRih51Ypx_Cf2pTtW-IiTt6iprbUyFYoZuYO3R0UsIPI3v3VWEQb-oxwA31zPA4z3QnXmS2dH-EFOOJFt5JlaUSeSQbdRfX3N0zBZ_ZBW2B-sbz0nAnoKJZCcFOxb5wjE2iMMk1ZzwWvuP8Ccrzlz8_tp3bPQSo2ji2AW-e77jXjoU42-dMn3bF3Jys9EtbCZLC5DdVyQ3b5QCHUeXVC0QKtVRQisbWholt_g"/>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-amber-500 font-bold mb-1">
+<span aria-hidden="true" class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+<span class="text-slate-body font-normal text-[11px]">(305 reviews)</span>
+</div>
+<h3 class="text-sm sm:text-[15px] leading-snug font-bold text-navy-brand group-hover:text-orange-brand transition-colors">
+<a class="hover:underline decoration-orange-brand decoration-2 underline-offset-2" href="products/starter-nursery-pack.html">SOLOMO ESSENTIALS Starter Nursery Pack</a>
+</h3>
+<p class="text-xs text-slate-body mt-1">6 Boxes • Unbleached • Built for diaper tables &amp; bottle leaks</p>
+<p class="text-[11px] text-slate-body mt-1.5">Net qty: 6 boxes × 100 pulls · Country of origin: India</p>
+</div>
+<div class="mt-3 pt-3 border-t border-sand-border space-y-2.5">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<div>
+<span class="text-base font-extrabold text-navy-brand" data-price>₹599</span>
+<span class="text-xs text-slate-body line-through ml-1">₹749</span>
+<span class="block text-[11px] text-slate-body">MRP incl. all taxes</span>
+</div>
+<span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Save 20%</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-full bg-cream-surface hover:bg-sand-border text-navy-brand text-[11px] sm:text-xs whitespace-nowrap font-bold transition-colors flex items-center justify-center gap-1 active:scale-95" onclick="addToCart('NURS-06')" type="button">
+<span aria-hidden="true" class="hidden sm:inline material-symbols-outlined text-sm">add_shopping_cart</span>
+<span>Add</span>
+</button>
+<button class="py-2 px-2 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-[11px] sm:text-xs whitespace-nowrap font-bold transition-all shadow-sm flex items-center justify-center gap-1 active:scale-95" onclick="directBuy('NURS-06')" type="button">
+<span aria-hidden="true" class="hidden sm:inline material-symbols-outlined text-sm">bolt</span>
+<span>Buy Now</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product 6 — ADDED. Sold by the mascot section, but had no card. -->
+<article class="group bg-white rounded-2xl p-3 sm:p-4 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-cat="bundle" data-name="curated starter box trio edition gift mascot" data-sku="TRIO-BX">
+<div>
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center mb-3">
+<span class="absolute top-3 left-3 z-10 bg-amber-500 text-white text-[9px] sm:text-[11px] font-extrabold uppercase px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full max-w-[75%] truncate shadow-sm">Trio Edition</span>
+<button aria-label="Save Curated Starter Box to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="TRIO-BX" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span>
+</button>
+<img alt="The SOLOMO ESSENTIALS mascot trio — Orange Pebble, Blue Cube and Golden Star" loading="lazy" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC64BRG-KrSFDkV4nRBV-v5lwuWYS7f7iAJ63vx6rF2OONtExMgZMBI-HChmOAC4mnScEp2rcYOoHBdToo_i3nAKI3N2GCQPIrmmK-n-xRL-XHJHwBv3KUzZF2ms-N-p6T44q5voPBsUa4HwKJ_kCTtGI3AsmFAIq6m6HCWOjmsl1XaJ42RGsc0BT5yyB0qdsJEsJSnxMtNwh6cXtXL0D4kRd_gYBTuAmQkXanJHkAWoH5RKri3qZ__2yjOjJBwSqAxDA"/>
+</div>
+<div class="flex items-center gap-1.5 text-xs text-amber-500 font-bold mb-1">
+<span aria-hidden="true" class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>5.0</span>
+<span class="text-slate-body font-normal text-[11px]">(188 reviews)</span>
+</div>
+<h3 class="text-sm sm:text-[15px] leading-snug font-bold text-navy-brand group-hover:text-orange-brand transition-colors">
+<a class="hover:underline decoration-orange-brand decoration-2 underline-offset-2" href="products/curated-starter-box.html">SOLOMO ESSENTIALS Curated Starter Box</a>
+</h3>
+<p class="text-xs text-slate-body mt-1">Trio Edition • One cube, one flat box, one pocket set</p>
+<p class="text-[11px] text-slate-body mt-1.5">Net qty: 3 formats, 8 units total · Country of origin: India</p>
+</div>
+<div class="mt-3 pt-3 border-t border-sand-border space-y-2.5">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<div>
+<span class="text-base font-extrabold text-navy-brand" data-price>₹899</span>
+<span class="text-xs text-slate-body line-through ml-1">₹1,099</span>
+<span class="block text-[11px] text-slate-body">MRP incl. all taxes</span>
+</div>
+<span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Save 18%</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-full bg-cream-surface hover:bg-sand-border text-navy-brand text-[11px] sm:text-xs whitespace-nowrap font-bold transition-colors flex items-center justify-center gap-1 active:scale-95" onclick="addToCart('TRIO-BX')" type="button">
+<span aria-hidden="true" class="hidden sm:inline material-symbols-outlined text-sm">add_shopping_cart</span>
+<span>Add</span>
+</button>
+<button class="py-2 px-2 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-[11px] sm:text-xs whitespace-nowrap font-bold transition-all shadow-sm flex items-center justify-center gap-1 active:scale-95" onclick="directBuy('TRIO-BX')" type="button">
+<span aria-hidden="true" class="hidden sm:inline material-symbols-outlined text-sm">bolt</span>
+<span>Buy Now</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<p aria-live="polite" class="text-center text-sm text-slate-body mt-10" hidden id="no-results"></p>
+</div>
+</section>
+<!-- MANIFESTO — "Tissue doesn't need bleach to be soft." -->
+<section class="py-16 lg:py-24 bg-cream-bg">
+<div class="max-w-4xl mx-auto px-6">
+<div class="bg-cream-surface border border-sand-border rounded-3xl lg:rounded-4xl px-6 py-14 sm:px-14 text-center">
+<span aria-hidden="true" class="material-symbols-outlined text-3xl text-orange-brand">spa</span>
+<h2 class="font-serif text-3xl sm:text-5xl font-semibold text-navy-brand tracking-tight mt-4 leading-tight">Tissue doesn’t need bleach to be soft.</h2>
+<p class="text-slate-body text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mt-5">We make every sheet from 100% bamboo pulp and skip the chlorine step entirely. That’s why our tissue is the warm colour it is, and why it stays soft through a whole winter cold.</p>
+<a class="inline-flex items-center gap-2 mt-8 px-7 py-3.5 rounded-full bg-navy-brand hover:bg-navy-muted text-white text-sm font-bold transition-colors" href="about.html">Read our story</a>
+</div>
+</div>
+</section>
+<!-- A CALMER BEDSIDE — room story with two shoppable picks -->
+<section class="py-16 lg:py-24 bg-cream-surface border-y border-sand-border">
+<div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+<div class="lg:col-span-7 rounded-3xl lg:rounded-4xl overflow-hidden shadow-xl border-4 border-white">
+<img alt="A SOLOMO ESSENTIALS tissue cube on a bedside nightstand beside a lamp" class="w-full h-full object-cover aspect-[4/3] hover:scale-102 transition-transform duration-700" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNI8atyKNH70n-wlMNnA5aGVsBdZTdVzVYe_l1GPcAjX3cBlxj-7UzK-bwQw3MoEcsR9sTLBFIWWlIWphqvFd_yRHBKh4sXZaEloOIDcm0NmuBfWSdt_83AUccywj00a0n9OJFq2u6Xxrb078rwEApnI-6hcJN3UXAFCZDG_-rDSchkGAE6uVHwCBusOMZ277NaD22jXC0XqFnML6wSuu3IKzR1hz9jxkeG7G7ggTH2Ivpt_ovYTrpeZsWzpp11HjLsw"/>
+</div>
+<div class="lg:col-span-5">
+<span class="text-xs uppercase font-extrabold tracking-widest text-orange-brand">Shop the room</span>
+<h2 class="font-serif text-3xl sm:text-4xl font-semibold text-navy-brand tracking-tight mt-2">A calmer bedside</h2>
+<p class="text-slate-body leading-relaxed mt-3">A small box that lives quietly beside the lamp, and a pocket pack for the bag on the chair. Everything a late-night sniffle needs, nothing that shouts.</p>
+<div class="grid grid-cols-2 gap-4 mt-8">
+<a class="group block bg-white rounded-2xl p-3 border border-sand-border hover:shadow-lg transition-shadow" href="products/bedside-comfort-cube.html">
+<div class="aspect-square rounded-xl overflow-hidden bg-cream-surface"><img alt="Bedside Comfort Cube" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAksj6r-3DEkPXitNt7ymcbOrO2T7LTHTL9iaZBadocjolL1WWQbWeePMt2Z5R88fgXSKHMgNxD1Sk2J7N1vtWp9JTcD58EjrSpnU8JrwU9WlvJ2ow7BjqbJLBltkIc0Ic5iYoj9ot1AsuAQV9ePTJc48GXLqSIGWQb_9Vy0vhQ6SfsWCg-pomO2j2Anssqig4rtZn7yZUWCGgnDPx7oBHqmBqUCMvF0ZepvI-uCsIdz6ivDD_cNoEPODonByS5WnFxgQ"/></div>
+<p class="text-sm font-bold text-navy-brand mt-3 group-hover:text-orange-brand transition-colors">Bedside Comfort Cube</p>
+<p class="text-xs text-slate-body mt-0.5">Pack of 6 · 3-ply</p>
+<p class="text-sm font-extrabold text-navy-brand mt-1">₹449 <span class="text-xs text-slate-body font-normal line-through">₹599</span></p>
+</a>
+<a class="group block bg-white rounded-2xl p-3 border border-sand-border hover:shadow-lg transition-shadow" href="products/everyday-pocket-packets.html">
+<div class="aspect-square rounded-xl overflow-hidden bg-cream-surface"><img alt="Everyday Pocket Packets" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_4O5bSZ5-N2f4R621vc7PL5wCFbjVPL7A58tnST4VWG8bj2mCbdwRJD0NMAV-nZDE0NeE-td-LpxGvllOXUXotG1wv9I5Ysf1UaavXM9chXzdCSoj57Hdg2vN5dPdtlg_GMudjOIi0Av5BZPTGF4SZKpE6eXM9-KIZ4kCujnQFGtYrjSYCs4i6GIE0L_3gusUxxs_9Rj2A_xpOf5uX7OfTBRdSWu0YsiWklyPepYaF86QPAOpQMmK"/></div>
+<p class="text-sm font-bold text-navy-brand mt-3 group-hover:text-orange-brand transition-colors">Everyday Pocket Packets</p>
+<p class="text-xs text-slate-body mt-0.5">Pack of 18 · 4-ply</p>
+<p class="text-sm font-extrabold text-navy-brand mt-1">₹349 <span class="text-xs text-slate-body font-normal line-through">₹420</span></p>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SHOP BY FORMAT — four round tiles -->
+<section class="py-16 lg:py-20 bg-cream-bg">
+<div class="max-w-6xl mx-auto px-6 lg:px-10">
+<h2 class="font-serif text-3xl font-semibold text-navy-brand text-center tracking-tight">Shop by format</h2>
+<ul class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 mt-10">
+<li><a class="group block text-center" href="shop.html?cat=table"><div class="aspect-square rounded-full overflow-hidden bg-cream-surface border-4 border-white shadow-md group-hover:shadow-xl transition-shadow"><img alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAksj6r-3DEkPXitNt7ymcbOrO2T7LTHTL9iaZBadocjolL1WWQbWeePMt2Z5R88fgXSKHMgNxD1Sk2J7N1vtWp9JTcD58EjrSpnU8JrwU9WlvJ2ow7BjqbJLBltkIc0Ic5iYoj9ot1AsuAQV9ePTJc48GXLqSIGWQb_9Vy0vhQ6SfsWCg-pomO2j2Anssqig4rtZn7yZUWCGgnDPx7oBHqmBqUCMvF0ZepvI-uCsIdz6ivDD_cNoEPODonByS5WnFxgQ"/></div><p class="font-serif font-semibold text-navy-brand mt-4 group-hover:text-orange-brand transition-colors">Table boxes</p></a></li>
+<li><a class="group block text-center" href="shop.html?cat=wipes"><div class="aspect-square rounded-full overflow-hidden bg-cream-surface border-4 border-white shadow-md group-hover:shadow-xl transition-shadow"><img alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEWCpskVheGhdvZdsNxbZQfalo_0tq2wj4JWPpQglGi4ZActXj1e7oYPn0g4kKKb312ftUJdfpOzX276qtYZ-2KkVOsvWiYqmv6yUmePEDvYJv_pl0v4vW5aUClSqhDgadITnaZMM9qr4UPYfi1L7K3zMMrln-CZNfaysCcUu4w4k7IAMIiqI7keJuoKbGNQ-WihkiBncfQLyfJNBF8Cg5KhqWi-08Wdm_P1pwpMCAJA-30DTv5bOC"/></div><p class="font-serif font-semibold text-navy-brand mt-4 group-hover:text-orange-brand transition-colors">Water wipes</p></a></li>
+<li><a class="group block text-center" href="shop.html?cat=pocket"><div class="aspect-square rounded-full overflow-hidden bg-cream-surface border-4 border-white shadow-md group-hover:shadow-xl transition-shadow"><img alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_4O5bSZ5-N2f4R621vc7PL5wCFbjVPL7A58tnST4VWG8bj2mCbdwRJD0NMAV-nZDE0NeE-td-LpxGvllOXUXotG1wv9I5Ysf1UaavXM9chXzdCSoj57Hdg2vN5dPdtlg_GMudjOIi0Av5BZPTGF4SZKpE6eXM9-KIZ4kCujnQFGtYrjSYCs4i6GIE0L_3gusUxxs_9Rj2A_xpOf5uX7OfTBRdSWu0YsiWklyPepYaF86QPAOpQMmK"/></div><p class="font-serif font-semibold text-navy-brand mt-4 group-hover:text-orange-brand transition-colors">Pocket packets</p></a></li>
+<li><a class="group block text-center" href="shop.html?cat=bundle"><div class="aspect-square rounded-full overflow-hidden bg-cream-surface border-4 border-white shadow-md group-hover:shadow-xl transition-shadow"><img alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC64BRG-KrSFDkV4nRBV-v5lwuWYS7f7iAJ63vx6rF2OONtExMgZMBI-HChmOAC4mnScEp2rcYOoHBdToo_i3nAKI3N2GCQPIrmmK-n-xRL-XHJHwBv3KUzZF2ms-N-p6T44q5voPBsUa4HwKJ_kCTtGI3AsmFAIq6m6HCWOjmsl1XaJ42RGsc0BT5yyB0qdsJEsJSnxMtNwh6cXtXL0D4kRd_gYBTuAmQkXanJHkAWoH5RKri3qZ__2yjOjJBwSqAxDA"/></div><p class="font-serif font-semibold text-navy-brand mt-4 group-hover:text-orange-brand transition-colors">Starter &amp; gifting</p></a></li>
+</ul>
+</div>
+</section>
+<!-- BESTSELLERS — horizontal shelf, native scroll-snap, arrows just scroll it -->
+<section class="py-16 lg:py-20 bg-cream-bg border-t border-sand-border scroll-mt-28" id="bestsellers">
+<div class="max-w-7xl mx-auto px-6 lg:px-10">
+<div class="flex items-end justify-between gap-4 mb-8">
+<div>
+<span class="text-xs uppercase font-extrabold tracking-widest text-orange-brand">Most reordered</span>
+<h2 class="font-serif text-3xl sm:text-4xl font-semibold text-navy-brand tracking-tight mt-1">Bestsellers</h2>
+</div>
+<div class="flex items-center gap-2">
+<a class="hidden sm:inline text-sm font-bold text-navy-brand hover:text-orange-brand mr-2 transition-colors" href="shop.html">View all</a>
+<button aria-label="Scroll bestsellers left" class="w-10 h-10 rounded-full bg-white border border-sand-border flex items-center justify-center text-navy-brand hover:border-orange-brand hover:text-orange-brand transition-colors" onclick="document.getElementById('bestseller-track').scrollBy({left: -300, behavior: 'smooth'})" type="button"><span aria-hidden="true" class="material-symbols-outlined">chevron_left</span></button>
+<button aria-label="Scroll bestsellers right" class="w-10 h-10 rounded-full bg-white border border-sand-border flex items-center justify-center text-navy-brand hover:border-orange-brand hover:text-orange-brand transition-colors" onclick="document.getElementById('bestseller-track').scrollBy({left: 300, behavior: 'smooth'})" type="button"><span aria-hidden="true" class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 [scrollbar-width:none]" id="bestseller-track">
+<article class="snap-start shrink-0 w-[190px] sm:w-[220px] group bg-white rounded-3xl p-4 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-square rounded-2xl overflow-hidden bg-cream-surface">
+<button aria-label="Save Bedside Comfort Cube to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="CUBE-06" type="button"><span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span></button>
+<img alt="SOLOMO ESSENTIALS Bedside Comfort Cube, a bamboo tissue cube box" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAksj6r-3DEkPXitNt7ymcbOrO2T7LTHTL9iaZBadocjolL1WWQbWeePMt2Z5R88fgXSKHMgNxD1Sk2J7N1vtWp9JTcD58EjrSpnU8JrwU9WlvJ2ow7BjqbJLBltkIc0Ic5iYoj9ot1AsuAQV9ePTJc48GXLqSIGWQb_9Vy0vhQ6SfsWCg-pomO2j2Anssqig4rtZn7yZUWCGgnDPx7oBHqmBqUCMvF0ZepvI-uCsIdz6ivDD_cNoEPODonByS5WnFxgQ"/>
+</div>
+<h3 class="text-sm font-bold text-navy-brand mt-4"><a class="hover:text-orange-brand transition-colors" href="products/bedside-comfort-cube.html">Bedside Comfort Cube</a></h3>
+<p class="text-xs text-slate-body mt-0.5">Pack of 6 • 100% Bamboo • 3-Ply</p>
+<div class="flex items-center justify-between mt-auto pt-4">
+<p><span class="text-base font-extrabold text-navy-brand">₹449</span> <span class="text-xs text-slate-body line-through">₹599</span></p>
+<button class="px-4 py-2 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-colors active:scale-95" onclick="addToCart('CUBE-06')" type="button">Add</button>
+</div>
+</article>
+<article class="snap-start shrink-0 w-[190px] sm:w-[220px] group bg-white rounded-3xl p-4 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-square rounded-2xl overflow-hidden bg-cream-surface">
+<button aria-label="Save Desk Essentials Flat Box to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="DESK-04" type="button"><span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span></button>
+<img alt="SOLOMO ESSENTIALS Desk Essentials Flat Box of bamboo tissues" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGvT3ApiYhXu5Pxwil5jndZ6QJum8WllTouUTy2420d5sQBeZUG4rm-TkzsQIsCEBEMKMtOUK-VM-6BdI39SaDiKR5bYOGWhClp7PbEa5z8veDUS_r1mqLIbIALY3QO9sAuHMZH_c3YI6qc8F2VwWsn4YXI6KWn6jOEAexxhdTeq78p7jzqHDaB0Oxl8hr8YlCLFtea1WQtnU0FdvRzzEVoxbSp2nnRC6J99BKt_Lni_WjPLrIUkj-aMbsqn0PgIBvcg"/>
+</div>
+<h3 class="text-sm font-bold text-navy-brand mt-4"><a class="hover:text-orange-brand transition-colors" href="products/desk-essentials-flat-box.html">Desk Essentials Flat Box</a></h3>
+<p class="text-xs text-slate-body mt-0.5">Pack of 4 • 160 sheets each</p>
+<div class="flex items-center justify-between mt-auto pt-4">
+<p><span class="text-base font-extrabold text-navy-brand">₹599</span> <span class="text-xs text-slate-body line-through">₹749</span></p>
+<button class="px-4 py-2 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-colors active:scale-95" onclick="addToCart('DESK-04')" type="button">Add</button>
+</div>
+</article>
+<article class="snap-start shrink-0 w-[190px] sm:w-[220px] group bg-white rounded-3xl p-4 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-square rounded-2xl overflow-hidden bg-cream-surface">
+<button aria-label="Save Pure Bamboo Water Wipes to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="WIPE-06" type="button"><span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span></button>
+<img alt="SOLOMO ESSENTIALS Pure Bamboo Water Wipes flip-top pack" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEWCpskVheGhdvZdsNxbZQfalo_0tq2wj4JWPpQglGi4ZActXj1e7oYPn0g4kKKb312ftUJdfpOzX276qtYZ-2KkVOsvWiYqmv6yUmePEDvYJv_pl0v4vW5aUClSqhDgadITnaZMM9qr4UPYfi1L7K3zMMrln-CZNfaysCcUu4w4k7IAMIiqI7keJuoKbGNQ-WihkiBncfQLyfJNBF8Cg5KhqWi-08Wdm_P1pwpMCAJA-30DTv5bOC"/>
+</div>
+<h3 class="text-sm font-bold text-navy-brand mt-4"><a class="hover:text-orange-brand transition-colors" href="products/pure-bamboo-water-wipes.html">Pure Bamboo Water Wipes</a></h3>
+<p class="text-xs text-slate-body mt-0.5">Pack of 6 • 480 wipes • Fragrance free</p>
+<div class="flex items-center justify-between mt-auto pt-4">
+<p><span class="text-base font-extrabold text-navy-brand">₹699</span> <span class="text-xs text-slate-body line-through">₹899</span></p>
+<button class="px-4 py-2 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-colors active:scale-95" onclick="addToCart('WIPE-06')" type="button">Add</button>
+</div>
+</article>
+<article class="snap-start shrink-0 w-[190px] sm:w-[220px] group bg-white rounded-3xl p-4 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-square rounded-2xl overflow-hidden bg-cream-surface">
+<button aria-label="Save Everyday Pocket Packets to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="POCK-18" type="button"><span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span></button>
+<img alt="SOLOMO ESSENTIALS Everyday Pocket Packets for bag and car" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_4O5bSZ5-N2f4R621vc7PL5wCFbjVPL7A58tnST4VWG8bj2mCbdwRJD0NMAV-nZDE0NeE-td-LpxGvllOXUXotG1wv9I5Ysf1UaavXM9chXzdCSoj57Hdg2vN5dPdtlg_GMudjOIi0Av5BZPTGF4SZKpE6eXM9-KIZ4kCujnQFGtYrjSYCs4i6GIE0L_3gusUxxs_9Rj2A_xpOf5uX7OfTBRdSWu0YsiWklyPepYaF86QPAOpQMmK"/>
+</div>
+<h3 class="text-sm font-bold text-navy-brand mt-4"><a class="hover:text-orange-brand transition-colors" href="products/everyday-pocket-packets.html">Everyday Pocket Packets</a></h3>
+<p class="text-xs text-slate-body mt-0.5">Pack of 18 • 4-Ply reinforced</p>
+<div class="flex items-center justify-between mt-auto pt-4">
+<p><span class="text-base font-extrabold text-navy-brand">₹349</span> <span class="text-xs text-slate-body line-through">₹420</span></p>
+<button class="px-4 py-2 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-colors active:scale-95" onclick="addToCart('POCK-18')" type="button">Add</button>
+</div>
+</article>
+<article class="snap-start shrink-0 w-[190px] sm:w-[220px] group bg-white rounded-3xl p-4 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-square rounded-2xl overflow-hidden bg-cream-surface">
+<button aria-label="Save Starter Nursery Pack to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="NURS-06" type="button"><span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span></button>
+<img alt="SOLOMO ESSENTIALS Starter Nursery Pack beside a plush bunny and baby bottle" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp1V6ChSgc7XLc9oLSds2wcl5Z4kDvbmRih51Ypx_Cf2pTtW-IiTt6iprbUyFYoZuYO3R0UsIPI3v3VWEQb-oxwA31zPA4z3QnXmS2dH-EFOOJFt5JlaUSeSQbdRfX3N0zBZ_ZBW2B-sbz0nAnoKJZCcFOxb5wjE2iMMk1ZzwWvuP8Ccrzlz8_tp3bPQSo2ji2AW-e77jXjoU42-dMn3bF3Jys9EtbCZLC5DdVyQ3b5QCHUeXVC0QKtVRQisbWholt_g"/>
+</div>
+<h3 class="text-sm font-bold text-navy-brand mt-4"><a class="hover:text-orange-brand transition-colors" href="products/starter-nursery-pack.html">Starter Nursery Pack</a></h3>
+<p class="text-xs text-slate-body mt-0.5">6 boxes • Unbleached nursery bundle</p>
+<div class="flex items-center justify-between mt-auto pt-4">
+<p><span class="text-base font-extrabold text-navy-brand">₹599</span> <span class="text-xs text-slate-body line-through">₹749</span></p>
+<button class="px-4 py-2 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-colors active:scale-95" onclick="addToCart('NURS-06')" type="button">Add</button>
+</div>
+</article>
+<article class="snap-start shrink-0 w-[190px] sm:w-[220px] group bg-white rounded-3xl p-4 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative aspect-square rounded-2xl overflow-hidden bg-cream-surface">
+<button aria-label="Save Curated Starter Box to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="TRIO-BX" type="button"><span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span></button>
+<img alt="The SOLOMO ESSENTIALS mascot trio — Orange Pebble, Blue Cube and Golden Star" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC64BRG-KrSFDkV4nRBV-v5lwuWYS7f7iAJ63vx6rF2OONtExMgZMBI-HChmOAC4mnScEp2rcYOoHBdToo_i3nAKI3N2GCQPIrmmK-n-xRL-XHJHwBv3KUzZF2ms-N-p6T44q5voPBsUa4HwKJ_kCTtGI3AsmFAIq6m6HCWOjmsl1XaJ42RGsc0BT5yyB0qdsJEsJSnxMtNwh6cXtXL0D4kRd_gYBTuAmQkXanJHkAWoH5RKri3qZ__2yjOjJBwSqAxDA"/>
+</div>
+<h3 class="text-sm font-bold text-navy-brand mt-4"><a class="hover:text-orange-brand transition-colors" href="products/curated-starter-box.html">Curated Starter Box</a></h3>
+<p class="text-xs text-slate-body mt-0.5">Trio Edition • 3 formats, 8 units</p>
+<div class="flex items-center justify-between mt-auto pt-4">
+<p><span class="text-base font-extrabold text-navy-brand">₹899</span> <span class="text-xs text-slate-body line-through">₹1,099</span></p>
+<button class="px-4 py-2 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-colors active:scale-95" onclick="addToCart('TRIO-BX')" type="button">Add</button>
+</div>
+</article>
+</div>
+</div>
+</section>
 <!-- STORYTELLING FEATURE SPLIT: "WHITE IS NOT RIGHT" -->
 <section class="py-16 lg:py-24 bg-cream-surface border-y border-sand-border relative" id="story">
 <div class="max-w-7xl mx-auto px-6 lg:px-10">
@@ -400,470 +836,6 @@
 <span aria-hidden="true" class="material-symbols-outlined text-sm text-emerald-600">verified</span> 100% Biodegradable
               </span>
 </div>
-</div>
-</div>
-</div>
-</section>
-<!-- CATALOG — six cards, filterable. The two bundles were previously buyable but unbrowsable. -->
-<section class="py-16 lg:py-24 bg-cream-bg" id="catalog">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-<div>
-<div class="inline-flex items-center gap-1.5 text-orange-brand font-bold text-xs uppercase tracking-wider mb-2">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">potted_plant</span>
-              Everyday Collection
-            </div>
-<h2 class="text-3xl sm:text-4xl font-bold text-navy-brand tracking-tight">
-              Curated for Living Spaces &amp; Nursery Care
-            </h2>
-</div>
-<!-- Category tabs. In the mockup these were styled buttons with no handler. -->
-<div aria-label="Filter by category" class="flex flex-nowrap items-center gap-1 max-w-full overflow-x-auto [scrollbar-width:none] bg-cream-surface border border-sand-border p-1.5 rounded-full text-xs font-semibold" id="category-tabs" role="tablist">
-<button aria-selected="true" class="px-4 py-2 rounded-full" data-cat="all" role="tab" type="button">All Essentials</button>
-<button aria-selected="false" class="px-4 py-2 rounded-full" data-cat="table" role="tab" type="button">Table Boxes</button>
-<button aria-selected="false" class="px-4 py-2 rounded-full" data-cat="wipes" role="tab" type="button">Pure Wipes</button>
-<button aria-selected="false" class="px-4 py-2 rounded-full" data-cat="pocket" role="tab" type="button">Pocket Travel</button>
-<!-- Added: the four original tabs had no home for a bundle, so NURS-06 and TRIO-BX were unreachable. -->
-<button aria-selected="false" class="px-4 py-2 rounded-full" data-cat="bundle" role="tab" type="button">Bundles</button>
-</div>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7" id="product-grid">
-<!-- Product 1 -->
-<article class="group bg-white rounded-3xl p-5 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-cat="table" data-name="bedside comfort cube tissue box 3 ply" data-sku="CUBE-06">
-<div>
-<div class="relative w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center mb-4">
-<span class="absolute top-3 left-3 z-10 bg-orange-brand text-white text-[11px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-sm">Bestseller</span>
-<button aria-label="Save Bedside Comfort Cube to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="CUBE-06" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span>
-</button>
-<img alt="SOLOMO ESSENTIALS Bedside Comfort Cube, a bamboo tissue cube box" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAksj6r-3DEkPXitNt7ymcbOrO2T7LTHTL9iaZBadocjolL1WWQbWeePMt2Z5R88fgXSKHMgNxD1Sk2J7N1vtWp9JTcD58EjrSpnU8JrwU9WlvJ2ow7BjqbJLBltkIc0Ic5iYoj9ot1AsuAQV9ePTJc48GXLqSIGWQb_9Vy0vhQ6SfsWCg-pomO2j2Anssqig4rtZn7yZUWCGgnDPx7oBHqmBqUCMvF0ZepvI-uCsIdz6ivDD_cNoEPODonByS5WnFxgQ"/>
-</div>
-<div class="flex items-center gap-1.5 text-xs text-amber-500 font-bold mb-1">
-<span aria-hidden="true" class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span>4.9</span>
-<span class="text-slate-body font-normal text-[11px]">(1,840 reviews)</span>
-</div>
-<h3 class="text-base font-bold text-navy-brand group-hover:text-orange-brand transition-colors">
-<a class="hover:underline decoration-orange-brand decoration-2 underline-offset-2" href="products/bedside-comfort-cube.html">SOLOMO ESSENTIALS Bedside Comfort Cube</a>
-</h3>
-<p class="text-xs text-slate-body mt-1">Pack of 6 Cubes • 100% Bamboo • 3-Ply Pure Softness</p>
-<p class="text-[11px] text-slate-body mt-1.5">Net qty: 6 cubes × 100 pulls · Country of origin: India</p>
-</div>
-<div class="mt-5 pt-4 border-t border-sand-border space-y-3">
-<div class="flex items-center justify-between">
-<div>
-<span class="text-lg font-extrabold text-navy-brand" data-price>₹449</span>
-<!-- LEGAL(metrology): MRP must read "inclusive of all taxes" and be a genuine former price. -->
-<span class="text-xs text-slate-body line-through ml-1">₹599</span>
-<span class="block text-[11px] text-slate-body">MRP incl. all taxes</span>
-</div>
-<span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Save 25%</span>
-</div>
-<div class="grid grid-cols-2 gap-2">
-<button class="py-2.5 px-3 rounded-full bg-cream-surface hover:bg-sand-border text-navy-brand text-xs font-bold transition-colors flex items-center justify-center gap-1 active:scale-95" onclick="addToCart('CUBE-06')" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">add_shopping_cart</span>
-<span>Add</span>
-</button>
-<button class="py-2.5 px-3 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-1 active:scale-95" onclick="directBuy('CUBE-06')" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">bolt</span>
-<span>Buy Now</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Product 2 -->
-<article class="group bg-white rounded-3xl p-5 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-cat="table" data-name="desk essentials flat box office study sheets" data-sku="DESK-04">
-<div>
-<div class="relative w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center mb-4">
-<span class="absolute top-3 left-3 z-10 bg-navy-brand text-white text-[11px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-sm">Study &amp; Office</span>
-<button aria-label="Save Desk Essentials Flat Box to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="DESK-04" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span>
-</button>
-<img alt="SOLOMO ESSENTIALS Desk Essentials Flat Box of bamboo tissues" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGvT3ApiYhXu5Pxwil5jndZ6QJum8WllTouUTy2420d5sQBeZUG4rm-TkzsQIsCEBEMKMtOUK-VM-6BdI39SaDiKR5bYOGWhClp7PbEa5z8veDUS_r1mqLIbIALY3QO9sAuHMZH_c3YI6qc8F2VwWsn4YXI6KWn6jOEAexxhdTeq78p7jzqHDaB0Oxl8hr8YlCLFtea1WQtnU0FdvRzzEVoxbSp2nnRC6J99BKt_Lni_WjPLrIUkj-aMbsqn0PgIBvcg"/>
-</div>
-<div class="flex items-center gap-1.5 text-xs text-amber-500 font-bold mb-1">
-<span aria-hidden="true" class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span>5.0</span>
-<span class="text-slate-body font-normal text-[11px]">(920 reviews)</span>
-</div>
-<h3 class="text-base font-bold text-navy-brand group-hover:text-orange-brand transition-colors">
-<a class="hover:underline decoration-orange-brand decoration-2 underline-offset-2" href="products/desk-essentials-flat-box.html">SOLOMO ESSENTIALS Desk Essentials Flat Box</a>
-</h3>
-<p class="text-xs text-slate-body mt-1">Pack of 4 Flat Rectangles • 160 Sheets each • Zero Dust</p>
-<p class="text-[11px] text-slate-body mt-1.5">Net qty: 4 boxes × 160 sheets · Country of origin: India</p>
-</div>
-<div class="mt-5 pt-4 border-t border-sand-border space-y-3">
-<div class="flex items-center justify-between">
-<div>
-<span class="text-lg font-extrabold text-navy-brand" data-price>₹599</span>
-<span class="text-xs text-slate-body line-through ml-1">₹749</span>
-<span class="block text-[11px] text-slate-body">MRP incl. all taxes</span>
-</div>
-<span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Save 20%</span>
-</div>
-<div class="grid grid-cols-2 gap-2">
-<button class="py-2.5 px-3 rounded-full bg-cream-surface hover:bg-sand-border text-navy-brand text-xs font-bold transition-colors flex items-center justify-center gap-1 active:scale-95" onclick="addToCart('DESK-04')" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">add_shopping_cart</span>
-<span>Add</span>
-</button>
-<button class="py-2.5 px-3 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-1 active:scale-95" onclick="directBuy('DESK-04')" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">bolt</span>
-<span>Buy Now</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Product 3 -->
-<article class="group bg-white rounded-3xl p-5 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-cat="wipes" data-name="pure bamboo water wipes baby fragrance free" data-sku="WIPE-06">
-<div>
-<div class="relative w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center mb-4">
-<span class="absolute top-3 left-3 z-10 bg-blue-brand text-white text-[11px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-sm">99.9% Pure Water</span>
-<button aria-label="Save Pure Bamboo Water Wipes to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="WIPE-06" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span>
-</button>
-<img alt="SOLOMO ESSENTIALS Pure Bamboo Water Wipes flip-top pack" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEWCpskVheGhdvZdsNxbZQfalo_0tq2wj4JWPpQglGi4ZActXj1e7oYPn0g4kKKb312ftUJdfpOzX276qtYZ-2KkVOsvWiYqmv6yUmePEDvYJv_pl0v4vW5aUClSqhDgadITnaZMM9qr4UPYfi1L7K3zMMrln-CZNfaysCcUu4w4k7IAMIiqI7keJuoKbGNQ-WihkiBncfQLyfJNBF8Cg5KhqWi-08Wdm_P1pwpMCAJA-30DTv5bOC"/>
-</div>
-<div class="flex items-center gap-1.5 text-xs text-amber-500 font-bold mb-1">
-<span aria-hidden="true" class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span>4.8</span>
-<span class="text-slate-body font-normal text-[11px]">(640 reviews)</span>
-</div>
-<h3 class="text-base font-bold text-navy-brand group-hover:text-orange-brand transition-colors">
-<a class="hover:underline decoration-orange-brand decoration-2 underline-offset-2" href="products/pure-bamboo-water-wipes.html">SOLOMO ESSENTIALS Pure Bamboo Water Wipes</a>
-</h3>
-<p class="text-xs text-slate-body mt-1">Pack of 6 (480 Wipes) • Flip Top • Fragrance Free</p>
-<p class="text-[11px] text-slate-body mt-1.5">Net qty: 6 packs × 80 wipes · Country of origin: India</p>
-</div>
-<div class="mt-5 pt-4 border-t border-sand-border space-y-3">
-<div class="flex items-center justify-between">
-<div>
-<span class="text-lg font-extrabold text-navy-brand" data-price>₹699</span>
-<span class="text-xs text-slate-body line-through ml-1">₹899</span>
-<span class="block text-[11px] text-slate-body">MRP incl. all taxes</span>
-</div>
-<span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Save 22%</span>
-</div>
-<div class="grid grid-cols-2 gap-2">
-<button class="py-2.5 px-3 rounded-full bg-cream-surface hover:bg-sand-border text-navy-brand text-xs font-bold transition-colors flex items-center justify-center gap-1 active:scale-95" onclick="addToCart('WIPE-06')" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">add_shopping_cart</span>
-<span>Add</span>
-</button>
-<button class="py-2.5 px-3 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-1 active:scale-95" onclick="directBuy('WIPE-06')" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">bolt</span>
-<span>Buy Now</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Product 4 -->
-<article class="group bg-white rounded-3xl p-5 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-cat="pocket" data-name="everyday pocket packets travel car handbag" data-sku="POCK-18">
-<div>
-<div class="relative w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center mb-4">
-<span class="absolute top-3 left-3 z-10 bg-cream-surface text-navy-brand border border-sand-border text-[11px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-sm">On-the-go</span>
-<button aria-label="Save Everyday Pocket Packets to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="POCK-18" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span>
-</button>
-<img alt="SOLOMO ESSENTIALS Everyday Pocket Packets for bag and car" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_4O5bSZ5-N2f4R621vc7PL5wCFbjVPL7A58tnST4VWG8bj2mCbdwRJD0NMAV-nZDE0NeE-td-LpxGvllOXUXotG1wv9I5Ysf1UaavXM9chXzdCSoj57Hdg2vN5dPdtlg_GMudjOIi0Av5BZPTGF4SZKpE6eXM9-KIZ4kCujnQFGtYrjSYCs4i6GIE0L_3gusUxxs_9Rj2A_xpOf5uX7OfTBRdSWu0YsiWklyPepYaF86QPAOpQMmK"/>
-</div>
-<div class="flex items-center gap-1.5 text-xs text-amber-500 font-bold mb-1">
-<span aria-hidden="true" class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span>4.9</span>
-<span class="text-slate-body font-normal text-[11px]">(410 reviews)</span>
-</div>
-<h3 class="text-base font-bold text-navy-brand group-hover:text-orange-brand transition-colors">
-<a class="hover:underline decoration-orange-brand decoration-2 underline-offset-2" href="products/everyday-pocket-packets.html">SOLOMO ESSENTIALS Everyday Pocket Packets</a>
-</h3>
-<p class="text-xs text-slate-body mt-1">Pack of 18 • Compact handbag &amp; car packs • 4-Ply reinforced</p>
-<p class="text-[11px] text-slate-body mt-1.5">Net qty: 18 packets × 10 sheets · Country of origin: India</p>
-</div>
-<div class="mt-5 pt-4 border-t border-sand-border space-y-3">
-<div class="flex items-center justify-between">
-<div>
-<span class="text-lg font-extrabold text-navy-brand" data-price>₹349</span>
-<span class="text-xs text-slate-body line-through ml-1">₹420</span>
-<span class="block text-[11px] text-slate-body">MRP incl. all taxes</span>
-</div>
-<span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Save 17%</span>
-</div>
-<div class="grid grid-cols-2 gap-2">
-<button class="py-2.5 px-3 rounded-full bg-cream-surface hover:bg-sand-border text-navy-brand text-xs font-bold transition-colors flex items-center justify-center gap-1 active:scale-95" onclick="addToCart('POCK-18')" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">add_shopping_cart</span>
-<span>Add</span>
-</button>
-<button class="py-2.5 px-3 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-1 active:scale-95" onclick="directBuy('POCK-18')" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">bolt</span>
-<span>Buy Now</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Product 5 — ADDED. Sold by the living-room card and the orange banner, but had no card. -->
-<article class="group bg-white rounded-3xl p-5 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-cat="bundle" data-name="starter nursery pack bundle baby six boxes" data-sku="NURS-06">
-<div>
-<div class="relative w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center mb-4">
-<span class="absolute top-3 left-3 z-10 bg-emerald-600 text-white text-[11px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-sm">Nursery Bundle</span>
-<button aria-label="Save Starter Nursery Pack to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="NURS-06" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span>
-</button>
-<img alt="SOLOMO ESSENTIALS Starter Nursery Pack beside a plush bunny and baby bottle" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp1V6ChSgc7XLc9oLSds2wcl5Z4kDvbmRih51Ypx_Cf2pTtW-IiTt6iprbUyFYoZuYO3R0UsIPI3v3VWEQb-oxwA31zPA4z3QnXmS2dH-EFOOJFt5JlaUSeSQbdRfX3N0zBZ_ZBW2B-sbz0nAnoKJZCcFOxb5wjE2iMMk1ZzwWvuP8Ccrzlz8_tp3bPQSo2ji2AW-e77jXjoU42-dMn3bF3Jys9EtbCZLC5DdVyQ3b5QCHUeXVC0QKtVRQisbWholt_g"/>
-</div>
-<div class="flex items-center gap-1.5 text-xs text-amber-500 font-bold mb-1">
-<span aria-hidden="true" class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span>4.9</span>
-<span class="text-slate-body font-normal text-[11px]">(305 reviews)</span>
-</div>
-<h3 class="text-base font-bold text-navy-brand group-hover:text-orange-brand transition-colors">
-<a class="hover:underline decoration-orange-brand decoration-2 underline-offset-2" href="products/starter-nursery-pack.html">SOLOMO ESSENTIALS Starter Nursery Pack</a>
-</h3>
-<p class="text-xs text-slate-body mt-1">6 Boxes • Unbleached • Built for diaper tables &amp; bottle leaks</p>
-<p class="text-[11px] text-slate-body mt-1.5">Net qty: 6 boxes × 100 pulls · Country of origin: India</p>
-</div>
-<div class="mt-5 pt-4 border-t border-sand-border space-y-3">
-<div class="flex items-center justify-between">
-<div>
-<span class="text-lg font-extrabold text-navy-brand" data-price>₹599</span>
-<span class="text-xs text-slate-body line-through ml-1">₹749</span>
-<span class="block text-[11px] text-slate-body">MRP incl. all taxes</span>
-</div>
-<span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Save 20%</span>
-</div>
-<div class="grid grid-cols-2 gap-2">
-<button class="py-2.5 px-3 rounded-full bg-cream-surface hover:bg-sand-border text-navy-brand text-xs font-bold transition-colors flex items-center justify-center gap-1 active:scale-95" onclick="addToCart('NURS-06')" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">add_shopping_cart</span>
-<span>Add</span>
-</button>
-<button class="py-2.5 px-3 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-1 active:scale-95" onclick="directBuy('NURS-06')" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">bolt</span>
-<span>Buy Now</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Product 6 — ADDED. Sold by the mascot section, but had no card. -->
-<article class="group bg-white rounded-3xl p-5 border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-cat="bundle" data-name="curated starter box trio edition gift mascot" data-sku="TRIO-BX">
-<div>
-<div class="relative w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center mb-4">
-<span class="absolute top-3 left-3 z-10 bg-amber-500 text-white text-[11px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-sm">Trio Edition</span>
-<button aria-label="Save Curated Starter Box to your wishlist" aria-pressed="false" class="wishlist absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-body hover:text-orange-brand transition-colors" data-sku="TRIO-BX" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-base">favorite</span>
-</button>
-<img alt="The SOLOMO ESSENTIALS mascot trio — Orange Pebble, Blue Cube and Golden Star" loading="lazy" class="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC64BRG-KrSFDkV4nRBV-v5lwuWYS7f7iAJ63vx6rF2OONtExMgZMBI-HChmOAC4mnScEp2rcYOoHBdToo_i3nAKI3N2GCQPIrmmK-n-xRL-XHJHwBv3KUzZF2ms-N-p6T44q5voPBsUa4HwKJ_kCTtGI3AsmFAIq6m6HCWOjmsl1XaJ42RGsc0BT5yyB0qdsJEsJSnxMtNwh6cXtXL0D4kRd_gYBTuAmQkXanJHkAWoH5RKri3qZ__2yjOjJBwSqAxDA"/>
-</div>
-<div class="flex items-center gap-1.5 text-xs text-amber-500 font-bold mb-1">
-<span aria-hidden="true" class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span>5.0</span>
-<span class="text-slate-body font-normal text-[11px]">(188 reviews)</span>
-</div>
-<h3 class="text-base font-bold text-navy-brand group-hover:text-orange-brand transition-colors">
-<a class="hover:underline decoration-orange-brand decoration-2 underline-offset-2" href="products/curated-starter-box.html">SOLOMO ESSENTIALS Curated Starter Box</a>
-</h3>
-<p class="text-xs text-slate-body mt-1">Trio Edition • One cube, one flat box, one pocket set</p>
-<p class="text-[11px] text-slate-body mt-1.5">Net qty: 3 formats, 8 units total · Country of origin: India</p>
-</div>
-<div class="mt-5 pt-4 border-t border-sand-border space-y-3">
-<div class="flex items-center justify-between">
-<div>
-<span class="text-lg font-extrabold text-navy-brand" data-price>₹899</span>
-<span class="text-xs text-slate-body line-through ml-1">₹1,099</span>
-<span class="block text-[11px] text-slate-body">MRP incl. all taxes</span>
-</div>
-<span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Save 18%</span>
-</div>
-<div class="grid grid-cols-2 gap-2">
-<button class="py-2.5 px-3 rounded-full bg-cream-surface hover:bg-sand-border text-navy-brand text-xs font-bold transition-colors flex items-center justify-center gap-1 active:scale-95" onclick="addToCart('TRIO-BX')" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">add_shopping_cart</span>
-<span>Add</span>
-</button>
-<button class="py-2.5 px-3 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-1 active:scale-95" onclick="directBuy('TRIO-BX')" type="button">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">bolt</span>
-<span>Buy Now</span>
-</button>
-</div>
-</div>
-</article>
-</div>
-<p aria-live="polite" class="text-center text-sm text-slate-body mt-10" hidden id="no-results"></p>
-</div>
-</section>
-<!-- EDITORIAL SECTION: EVERY CORNER OF YOUR HOME -->
-<section class="py-16 lg:py-24 bg-cream-surface border-t border-sand-border" id="corners">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="text-center max-w-3xl mx-auto mb-14">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-sand-border text-xs font-bold text-orange-brand uppercase tracking-wider mb-3">
-<span aria-hidden="true" class="material-symbols-outlined text-sm">home_pin</span>
-            Everyday Nordic Living
-          </div>
-<h2 class="text-3xl sm:text-4xl font-bold text-navy-brand tracking-tight">
-            Designed for Every Corner of Your Home
-          </h2>
-<p class="text-slate-body text-sm sm:text-base mt-3">
-            From the warm glow of bedside lamps to tidy study desks and quiet car drives, SOLOMO ESSENTIALS fits naturally into peaceful rituals with pure bamboo comfort.
-          </p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-<!-- Corner 1 -->
-<div class="bg-white rounded-3xl overflow-hidden border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
-<div class="relative aspect-[4/3] overflow-hidden bg-cream-surface">
-<img alt="A SOLOMO ESSENTIALS cube on a bedside nightstand" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNI8atyKNH70n-wlMNnA5aGVsBdZTdVzVYe_l1GPcAjX3cBlxj-7UzK-bwQw3MoEcsR9sTLBFIWWlIWphqvFd_yRHBKh4sXZaEloOIDcm0NmuBfWSdt_83AUccywj00a0n9OJFq2u6Xxrb078rwEApnI-6hcJN3UXAFCZDG_-rDSchkGAE6uVHwCBusOMZ277NaD22jXC0XqFnML6wSuu3IKzR1hz9jxkeG7G7ggTH2Ivpt_ovYTrpeZsWzpp11HjLsw"/>
-<div class="absolute top-3 left-3 bg-navy-brand/85 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
-<span aria-hidden="true" class="material-symbols-outlined text-xs text-orange-brand">bedtime</span> Corner 01
-              </div>
-</div>
-<div class="p-5 flex-1 flex flex-col justify-between">
-<div>
-<span class="text-[11px] font-bold tracking-wider text-orange-brand uppercase">Bedside / Bedroom</span>
-<h3 class="text-base font-bold text-navy-brand mt-1">Bedside Table</h3>
-<p class="text-xs text-slate-body mt-2 leading-relaxed">
-                  Right beside warm bedside lamps, late-night reads, and peaceful evening wind-down rituals.
-                </p>
-</div>
-<div class="mt-4 pt-3 border-t border-sand-border flex items-center justify-between">
-<div>
-<span class="text-[11px] font-semibold text-navy-muted block">Bedside Comfort Cube</span>
-<span class="text-xs font-bold text-navy-brand">₹449</span>
-</div>
-<button class="px-4 py-2.5 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1 active:scale-95" onclick="directBuy('CUBE-06')" type="button">
-<span>Quick Buy</span>
-<span aria-hidden="true" class="material-symbols-outlined text-xs">bolt</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Corner 2 -->
-<div class="bg-white rounded-3xl overflow-hidden border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
-<div class="relative aspect-[4/3] overflow-hidden bg-cream-surface">
-<img alt="A SOLOMO ESSENTIALS flat box on a study desk with a laptop and notebook" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVGDNczDgz5D1qgQbUt5Iix7HHesYUxcWRCUe_cQkJlY8auwuOLv-i8Na4bGDEOVQHNgZ4w8XoI3NZKwrY4Wt9K0hGJGwqJXtg3oG_WCLtVvFkZ6jP6uScrEsyBvJTDkOZqSsfMe2lJTX0EOLezUA9wFzzdF201EKeo2CgtOML36b8UqFHGVJDHW39kQL1efYPCM91kgHx38lLxwCSisvMGf5oMNy5XrjQVsWeT6Kae_bJnGIJYp51cX4VI1ueEZCmyg"/>
-<div class="absolute top-3 left-3 bg-navy-brand/85 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
-<span aria-hidden="true" class="material-symbols-outlined text-xs text-blue-brand">laptop_chromebook</span> Corner 02
-              </div>
-</div>
-<div class="p-5 flex-1 flex flex-col justify-between">
-<div>
-<span class="text-[11px] font-bold tracking-wider text-blue-brand uppercase">Work / Home Office</span>
-<h3 class="text-base font-bold text-navy-brand mt-1">Study &amp; Workspace</h3>
-<p class="text-xs text-slate-body mt-2 leading-relaxed">
-                  Clean notes, morning coffee spills, and lint-free spectacle wiping for productive work hours.
-                </p>
-</div>
-<div class="mt-4 pt-3 border-t border-sand-border flex items-center justify-between">
-<div>
-<span class="text-[11px] font-semibold text-navy-muted block">Desk Essentials Flat Box</span>
-<span class="text-xs font-bold text-navy-brand">₹599</span>
-</div>
-<button class="px-4 py-2.5 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1 active:scale-95" onclick="directBuy('DESK-04')" type="button">
-<span>Quick Buy</span>
-<span aria-hidden="true" class="material-symbols-outlined text-xs">bolt</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Corner 3 — the mockup labelled this "Starter Pack" but wired it to the nursery SKU. Now named honestly. -->
-<div class="bg-white rounded-3xl overflow-hidden border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
-<div class="relative aspect-[4/3] overflow-hidden bg-cream-surface">
-<img alt="SOLOMO ESSENTIALS boxes on a living room coffee table" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBOZ6sSRDlCEDLHPFK6dsMXdNdenm-K6tQhlR2D-NH1v49pt7j-vWQxvtalRtckEM7U9kWWMSuVJ10UavE8M0UWJQQyIga_G0TE9uw2uvM2GkJGoXogPaA8YbC08f7TVzXQCb_8AGoXUcwhirxc0wXwflUnAvc7kH1uN7y0x2O25CjOtOSpsKc7LQzrtvICQV1qnNL02CEErllRxX8Y-sx76Oh_0X7mX23UK311SH4G3nnlUP1JbWTJ63bguN6bewWGg"/>
-<div class="absolute top-3 left-3 bg-navy-brand/85 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
-<span aria-hidden="true" class="material-symbols-outlined text-xs text-amber-400">weekend</span> Corner 03
-              </div>
-</div>
-<div class="p-5 flex-1 flex flex-col justify-between">
-<div>
-<span class="text-[11px] font-bold tracking-wider text-navy-brand uppercase">Lounge / Coffee Table</span>
-<h3 class="text-base font-bold text-navy-brand mt-1">Living Room</h3>
-<p class="text-xs text-slate-body mt-2 leading-relaxed">
-                  Playful character art that doubles as a thoughtful Scandinavian decor piece on wood tables.
-                </p>
-</div>
-<div class="mt-4 pt-3 border-t border-sand-border flex items-center justify-between">
-<div>
-<span class="text-[11px] font-semibold text-navy-muted block">Curated Starter Box</span>
-<span class="text-xs font-bold text-navy-brand">₹899</span>
-</div>
-<button class="px-4 py-2.5 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1 active:scale-95" onclick="directBuy('TRIO-BX')" type="button">
-<span>Quick Buy</span>
-<span aria-hidden="true" class="material-symbols-outlined text-xs">bolt</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Corner 4 -->
-<div class="bg-white rounded-3xl overflow-hidden border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
-<div class="relative aspect-[4/3] overflow-hidden bg-cream-surface">
-<img alt="SOLOMO ESSENTIALS wipes in a nursery beside a plush bunny and baby bottle" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp1V6ChSgc7XLc9oLSds2wcl5Z4kDvbmRih51Ypx_Cf2pTtW-IiTt6iprbUyFYoZuYO3R0UsIPI3v3VWEQb-oxwA31zPA4z3QnXmS2dH-EFOOJFt5JlaUSeSQbdRfX3N0zBZ_ZBW2B-sbz0nAnoKJZCcFOxb5wjE2iMMk1ZzwWvuP8Ccrzlz8_tp3bPQSo2ji2AW-e77jXjoU42-dMn3bF3Jys9EtbCZLC5DdVyQ3b5QCHUeXVC0QKtVRQisbWholt_g"/>
-<div class="absolute top-3 left-3 bg-navy-brand/85 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
-<span aria-hidden="true" class="material-symbols-outlined text-xs text-emerald-400">child_friendly</span> Corner 04
-              </div>
-</div>
-<div class="p-5 flex-1 flex flex-col justify-between">
-<div>
-<span class="text-[11px] font-bold tracking-wider text-emerald-700 uppercase">Infant / Nursery Care</span>
-<h3 class="text-base font-bold text-navy-brand mt-1">Nursery Station</h3>
-<p class="text-xs text-slate-body mt-2 leading-relaxed">
-                  Ultra-pure unbleached bamboo pulp for delicate baby cheeks, bottle leaks, and diaper tables.
-                </p>
-</div>
-<div class="mt-4 pt-3 border-t border-sand-border flex items-center justify-between">
-<div>
-<span class="text-[11px] font-semibold text-navy-muted block">Pure Bamboo Water Wipes</span>
-<span class="text-xs font-bold text-navy-brand">₹699</span>
-</div>
-<button class="px-4 py-2.5 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1 active:scale-95" onclick="directBuy('WIPE-06')" type="button">
-<span>Quick Buy</span>
-<span aria-hidden="true" class="material-symbols-outlined text-xs">bolt</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Corner 5 -->
-<div class="bg-white rounded-3xl overflow-hidden border border-sand-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
-<div class="relative aspect-[4/3] overflow-hidden bg-cream-surface">
-<img alt="SOLOMO ESSENTIALS pocket packs on a car console armrest" loading="lazy" class="w-full h-full object-contain rounded-2xl group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChMD8v3i5IXrFOdoqOOtjkfas37PA8yOi0dIgnZ5IxlaggAa5BH_8NJWlg_zyIbcyBDEoGm6VrQ96ASN0qPzM7oU_UYGkhHEV-AK6vfPLwLSmin-MspEq62cHfkVaM8GnLqtK9p2NWZ05LH1R7xeVUswyKqMljq6Rhn6cD2Sd2jwQhX54Sh-oZBRqppHv3jevY8ak0ZmZOp5hfLE7wAtvbFAqEDn6GsLurpjnC-wfAN3eGcudQmUCzVFtSUEfuYNEAJg"/>
-<div class="absolute top-3 left-3 bg-navy-brand/85 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
-<span aria-hidden="true" class="material-symbols-outlined text-xs text-amber-500">directions_car</span> Corner 05
-              </div>
-</div>
-<div class="p-5 flex-1 flex flex-col justify-between">
-<div>
-<span class="text-[11px] font-bold tracking-wider text-amber-700 uppercase">Commute / Road Trips</span>
-<h3 class="text-base font-bold text-navy-brand mt-1">Everyday Drive</h3>
-<p class="text-xs text-slate-body mt-2 leading-relaxed">
-                  Resting right on your car console armrest and door caddy for quick cleanups on every commute.
-                </p>
-</div>
-<div class="mt-4 pt-3 border-t border-sand-border flex items-center justify-between">
-<div>
-<span class="text-[11px] font-semibold text-navy-muted block">Everyday Pocket Packets</span>
-<span class="text-xs font-bold text-navy-brand">₹349</span>
-</div>
-<button class="px-4 py-2.5 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1 active:scale-95" onclick="directBuy('POCK-18')" type="button">
-<span>Quick Buy</span>
-<span aria-hidden="true" class="material-symbols-outlined text-xs">bolt</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- MASCOT STORY CALLOUT -->
-<section class="py-14 bg-cream-bg">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="bg-white rounded-3xl lg:rounded-4xl p-8 lg:p-12 border border-sand-border shadow-sm flex flex-col md:flex-row items-center justify-between gap-8">
-<div class="flex items-center gap-6 max-w-xl">
-<div class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-cream-surface border border-sand-border p-3 flex items-center justify-center shrink-0">
-<img alt="The SOLOMO ESSENTIALS mascot trio" loading="lazy" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC64BRG-KrSFDkV4nRBV-v5lwuWYS7f7iAJ63vx6rF2OONtExMgZMBI-HChmOAC4mnScEp2rcYOoHBdToo_i3nAKI3N2GCQPIrmmK-n-xRL-XHJHwBv3KUzZF2ms-N-p6T44q5voPBsUa4HwKJ_kCTtGI3AsmFAIq6m6HCWOjmsl1XaJ42RGsc0BT5yyB0qdsJEsJSnxMtNwh6cXtXL0D4kRd_gYBTuAmQkXanJHkAWoH5RKri3qZ__2yjOjJBwSqAxDA"/>
-</div>
-<div>
-<span class="text-xs font-bold text-orange-brand uppercase tracking-wider">Meet the SOLOMO ESSENTIALS Trio</span>
-<h3 class="text-xl sm:text-2xl font-bold text-navy-brand mt-1">Everyday Essentials for a Brighter You</h3>
-<p class="text-xs sm:text-sm text-slate-body mt-2">
-                Orange Pebble (Warmth), Blue Cube (Calm Purity), and Golden Star (Cheer). Subtle, heartwarming art created to bring gentle smiles to everyday routines.
-              </p>
-</div>
-</div>
-<div class="flex flex-col sm:flex-row items-center gap-3 shrink-0">
-<button class="px-7 py-3.5 rounded-full bg-navy-brand hover:bg-orange-brand text-white text-xs font-bold transition-all shadow-sm" onclick="directBuy('TRIO-BX')" type="button">
-              Get Curated Starter Box (₹899)
-            </button>
 </div>
 </div>
 </div>
@@ -988,6 +960,60 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+</section>
+<!-- BETTER FOR SKIN, BETTER FOR RIVERS -->
+<section class="py-12 lg:py-16 bg-cream-bg">
+<div class="max-w-6xl mx-auto px-6 lg:px-10">
+<div class="grid grid-cols-1 md:grid-cols-5 rounded-3xl overflow-hidden bg-navy-brand text-white shadow-xl">
+<img alt="A SOLOMO ESSENTIALS flat box on a study desk" class="md:col-span-2 w-full h-56 md:h-full object-cover" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVGDNczDgz5D1qgQbUt5Iix7HHesYUxcWRCUe_cQkJlY8auwuOLv-i8Na4bGDEOVQHNgZ4w8XoI3NZKwrY4Wt9K0hGJGwqJXtg3oG_WCLtVvFkZ6jP6uScrEsyBvJTDkOZqSsfMe2lJTX0EOLezUA9wFzzdF201EKeo2CgtOML36b8UqFHGVJDHW39kQL1efYPCM91kgHx38lLxwCSisvMGf5oMNy5XrjQVsWeT6Kae_bJnGIJYp51cX4VI1ueEZCmyg"/>
+<div class="md:col-span-3 p-7 sm:p-9 lg:p-10 flex flex-col justify-center">
+<span class="text-xs uppercase font-extrabold tracking-widest text-orange-brand">Why bamboo</span>
+<h2 class="font-serif text-2xl sm:text-3xl font-semibold tracking-tight mt-2">Better for skin. Better for rivers.</h2>
+<ul class="space-y-3.5 mt-5">
+<li class="flex gap-4"><span aria-hidden="true" class="w-9 h-9 shrink-0 rounded-xl bg-white/10 text-orange-brand flex items-center justify-center material-symbols-outlined text-xl">water_drop</span><div><p class="font-bold">Zero chlorine</p><p class="text-sm text-white/75 mt-0.5">No bleaching step, so nothing chlorinated is washed out into the river beside the mill.</p></div></li>
+<li class="flex gap-4"><span aria-hidden="true" class="w-9 h-9 shrink-0 rounded-xl bg-white/10 text-orange-brand flex items-center justify-center material-symbols-outlined text-xl">forest</span><div><p class="font-bold">Long bamboo fibre</p><p class="text-sm text-white/75 mt-0.5">Longer than wood pulp, so sheets stay soft and strong without lint or binders.</p></div></li>
+<li class="flex gap-4"><span aria-hidden="true" class="w-9 h-9 shrink-0 rounded-xl bg-white/10 text-orange-brand flex items-center justify-center material-symbols-outlined text-xl">recycling</span><div><p class="font-bold">Plastic-free from the box out</p><p class="text-sm text-white/75 mt-0.5">Recyclable cartons with no plastic window.</p></div></li>
+</ul>
+<a class="self-start mt-7 px-6 py-3 rounded-full bg-orange-brand hover:bg-[#E84E00] text-white text-sm font-bold shadow-md transition-colors" href="shop.html">Shop now</a>
+</div>
+</div>
+</div>
+</section>
+<!-- FROM THE JOURNAL — TODO(journal): there are no articles yet; each card points at the closest real page. -->
+<section class="py-16 lg:py-20 bg-cream-surface border-y border-sand-border scroll-mt-28" id="journal">
+<div class="max-w-7xl mx-auto px-6 lg:px-10">
+<div class="flex items-end justify-between gap-4 mb-8">
+<h2 class="font-serif text-3xl sm:text-4xl font-semibold text-navy-brand tracking-tight">From the journal</h2>
+<a class="text-sm font-bold text-navy-brand hover:text-orange-brand transition-colors" href="about.html">All stories</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+<a class="group block" href="about.html"><div class="aspect-[4/3] rounded-3xl overflow-hidden bg-white border border-sand-border"><img alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALEZ_99mftAodYyWpMhDZO5B5x2bKg5M7OE4S1hPTlKNn-KWRKW_Avbre3_41x48opFUbGtCfXYntoaZGrsaxzFg9KitkCcH9Rjj5thRbM_O6IMAkfufVyOj6XpwfaWa6OnDI_-mONA9P1vMtLsLL5zfhciNS3Ba6BHBHTxgr3cdr_KJffea14mo-cWzwRTOdRmyAhnogLlyvBI8Edns4tidXsFny47gfhVgeHzOP7P6G_MUeXRgfp1oDpsWoEbQ_Fvg"/></div><p class="text-[11px] uppercase font-extrabold tracking-widest text-orange-brand mt-4">Materials</p><h3 class="font-serif text-xl font-semibold text-navy-brand mt-1 group-hover:text-orange-brand transition-colors">Why our tissue isn’t white</h3></a>
+<a class="group block" href="products/starter-nursery-pack.html"><div class="aspect-[4/3] rounded-3xl overflow-hidden bg-white border border-sand-border"><img alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp1V6ChSgc7XLc9oLSds2wcl5Z4kDvbmRih51Ypx_Cf2pTtW-IiTt6iprbUyFYoZuYO3R0UsIPI3v3VWEQb-oxwA31zPA4z3QnXmS2dH-EFOOJFt5JlaUSeSQbdRfX3N0zBZ_ZBW2B-sbz0nAnoKJZCcFOxb5wjE2iMMk1ZzwWvuP8Ccrzlz8_tp3bPQSo2ji2AW-e77jXjoU42-dMn3bF3Jys9EtbCZLC5DdVyQ3b5QCHUeXVC0QKtVRQisbWholt_g"/></div><p class="text-[11px] uppercase font-extrabold tracking-widest text-orange-brand mt-4">Nursery</p><h3 class="font-serif text-xl font-semibold text-navy-brand mt-1 group-hover:text-orange-brand transition-colors">A changing station that works at 3am</h3></a>
+<a class="group block" href="about.html"><div class="aspect-[4/3] rounded-3xl overflow-hidden bg-white border border-sand-border"><img alt="" class="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC64BRG-KrSFDkV4nRBV-v5lwuWYS7f7iAJ63vx6rF2OONtExMgZMBI-HChmOAC4mnScEp2rcYOoHBdToo_i3nAKI3N2GCQPIrmmK-n-xRL-XHJHwBv3KUzZF2ms-N-p6T44q5voPBsUa4HwKJ_kCTtGI3AsmFAIq6m6HCWOjmsl1XaJ42RGsc0BT5yyB0qdsJEsJSnxMtNwh6cXtXL0D4kRd_gYBTuAmQkXanJHkAWoH5RKri3qZ__2yjOjJBwSqAxDA"/></div><p class="text-[11px] uppercase font-extrabold tracking-widest text-orange-brand mt-4">Behind the box</p><h3 class="font-serif text-xl font-semibold text-navy-brand mt-1 group-hover:text-orange-brand transition-colors">Meet Pebble, Cube and Star</h3></a>
+</div>
+</div>
+</section>
+<!-- TRUST STRIP -->
+<section class="py-10 bg-cream-bg border-b border-sand-border">
+<ul class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+<li><span aria-hidden="true" class="material-symbols-outlined text-3xl text-orange-brand">local_shipping</span><p class="text-sm font-bold text-navy-brand mt-2">Free delivery over ₹499</p><p class="text-xs text-slate-body">Express, across India</p></li>
+<li><span aria-hidden="true" class="material-symbols-outlined text-3xl text-orange-brand">spa</span><p class="text-sm font-bold text-navy-brand mt-2">100% bamboo pulp</p><p class="text-xs text-slate-body">Unbleached, lint-free</p></li>
+<li><span aria-hidden="true" class="material-symbols-outlined text-3xl text-orange-brand">recycling</span><p class="text-sm font-bold text-navy-brand mt-2">Recyclable cartons</p><p class="text-xs text-slate-body">No plastic window</p></li>
+<li><a class="block group" href="policies/returns.html"><span aria-hidden="true" class="material-symbols-outlined text-3xl text-orange-brand">support_agent</span><p class="text-sm font-bold text-navy-brand mt-2 group-hover:text-orange-brand">Here when you need us</p><p class="text-xs text-slate-body">Returns &amp; refunds policy</p></a></li>
+</ul>
+</section>
+<!-- FAQ — answers mirror faq.html; edit both together. -->
+<section class="py-16 lg:py-20 bg-cream-bg">
+<div class="max-w-3xl mx-auto px-6">
+<h2 class="font-serif text-3xl sm:text-4xl font-semibold text-navy-brand tracking-tight text-center"><span class="text-orange-brand">Frequently</span> asked questions</h2>
+<p class="text-slate-body text-center mt-3">Everything people ask before their first box. More on the <a class="font-bold text-navy-brand underline decoration-orange-brand decoration-2 underline-offset-2" href="faq.html">FAQ page</a>.</p>
+<div class="mt-8 border-t border-sand-border">
+<details class="group border-b border-sand-border"><summary class="flex items-start justify-between gap-4 py-4 cursor-pointer text-sm font-bold text-navy-brand list-none"><span>Is unbleached tissue less hygienic than white tissue?</span><span aria-hidden="true" class="material-symbols-outlined text-lg shrink-0 transition-transform group-open:rotate-180">expand_more</span></summary><p class="pb-4 text-sm text-slate-body leading-relaxed">No. The colour comes from skipping chlorine bleaching, not from skipping cleaning. Bleaching makes tissue whiter, not cleaner.</p></details>
+<details class="group border-b border-sand-border"><summary class="flex items-start justify-between gap-4 py-4 cursor-pointer text-sm font-bold text-navy-brand list-none"><span>Will these shed lint on my glasses or my laptop?</span><span aria-hidden="true" class="material-symbols-outlined text-lg shrink-0 transition-transform group-open:rotate-180">expand_more</span></summary><p class="pb-4 text-sm text-slate-body leading-relaxed">Bamboo fibre is longer than wood pulp, which is what causes shedding. The desk flat box in particular is made for wiping lenses and screens.</p></details>
+<details class="group border-b border-sand-border"><summary class="flex items-start justify-between gap-4 py-4 cursor-pointer text-sm font-bold text-navy-brand list-none"><span>When do I get free delivery?</span><span aria-hidden="true" class="material-symbols-outlined text-lg shrink-0 transition-transform group-open:rotate-180">expand_more</span></summary><p class="pb-4 text-sm text-slate-body leading-relaxed">On orders over ₹499, measured after any discount is applied. Your basket shows exactly how much more you need.</p></details>
+<details class="group border-b border-sand-border"><summary class="flex items-start justify-between gap-4 py-4 cursor-pointer text-sm font-bold text-navy-brand list-none"><span>How do I use the COZY10 code?</span><span aria-hidden="true" class="material-symbols-outlined text-lg shrink-0 transition-transform group-open:rotate-180">expand_more</span></summary><p class="pb-4 text-sm text-slate-body leading-relaxed">Enter it in the discount field in your basket, then Apply. One code per order — codes cannot be stacked with each other.</p></details>
 </div>
 </div>
 </section>
@@ -1148,7 +1174,7 @@
 <a class="hover:text-white transition-colors" href="policies/privacy.html">Privacy Policy</a>
 <a class="hover:text-white transition-colors" href="policies/terms.html">Terms of Sale</a>
 <!-- TODO(contact): wa.me needs the number in international format, e.g. wa.me/919999999999 -->
-<a class="hover:text-white transition-colors flex items-center gap-1 text-emerald-300 font-semibold" href="https://wa.me/" rel="noopener" target="_blank">
+<a class="hover:text-white transition-colors flex items-center gap-1 text-emerald-300 font-semibold" href="https://wa.me/919540065180" rel="noopener" target="_blank">
 <span aria-hidden="true" class="material-symbols-outlined text-sm">chat</span> WhatsApp Care
           </a>
 </div>
